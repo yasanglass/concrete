@@ -1,0 +1,28 @@
+name: Update Gradle Wrapper
+
+on:
+  schedule:
+    - cron: "30 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-gradle-wrapper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Update Gradle Wrapper
+        uses: gradle-update/update-gradle-wrapper-action@v2
+        with:
+          paths: |
+            kotlin-multiplatform/**
+          labels: |
+            dependencies
+            kotlin multiplatform
+          release-channel: stable
+          set-distribution-checksum: true

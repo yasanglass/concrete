@@ -1,0 +1,34 @@
+version: 2
+updates:
+- package-ecosystem: gradle
+  directory: "/compose-multiplatform"
+  schedule:
+    interval: daily
+    time: "16:30"
+    timezone: "Europe/Prague"
+  labels: 
+    - 'compose multiplatform'
+    - 'dependencies'
+  open-pull-requests-limit: 3
+  assignees:
+    - "yasanglass"
+  groups:
+    kotlin:
+      patterns:
+        - "jetbrains.kotlin.*"
+    android-x:
+      patterns:
+        - "androidx.*"
+
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "16:30"
+    timezone: "Europe/Prague"
+  labels: 
+    - 'github actions'
+    - 'dependencies'
+  open-pull-requests-limit: 3
+  assignees:
+    - "yasanglass"
