@@ -13,10 +13,10 @@ public data class Accent(
 )
 
 public data class Content(
-    val major: Color,
-    val minor: Color,
-    val inverseMajor: Color,
-    val inverseMinor: Color,
+    val normal: Color,
+    val subtle: Color,
+    val inverseNormal: Color,
+    val inverseSubtle: Color,
 )
 
 public data class Layer(

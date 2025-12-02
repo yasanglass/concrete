@@ -10,11 +10,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
 import glass.yasan.concrete.foundation.annotation.ExperimentalConcreteApi
+import glass.yasan.concrete.foundation.font.rubikMonoFontFamily
 import glass.yasan.concrete.foundation.theme.ConcreteTheme
 
 @ExperimentalConcreteApi
 @Composable
-public fun Text(
+public fun TextMono(
     text: String,
     modifier: Modifier = Modifier,
     prominence: Prominence = NORMAL,
@@ -35,6 +36,7 @@ public fun Text(
             SUBTLE -> ConcreteTheme.content.subtle
             else -> ConcreteTheme.content.normal
         },
+        fontFamily = rubikMonoFontFamily(),
         fontSize = fontSize,
         fontStyle = fontStyle,
         fontWeight = fontWeight,
