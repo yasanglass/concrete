@@ -28,13 +28,13 @@ fun SampleApp() {
             contentAlignment = Alignment.Center,
             modifier = Modifier
                 .fillMaxSize()
-                .background(ConcreteTheme.layer.midground),
+                .background(ConcreteTheme.colors.layer.midground),
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(ConcreteTheme.layer.foreground)
+                    .background(ConcreteTheme.colors.layer.foreground)
                     .padding(16.dp),
             ) {
                 TextMono(

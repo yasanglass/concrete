@@ -8,7 +8,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 
 @Composable
-internal actual fun rememberDynamicAccent(isDark: Boolean): Accent? {
+internal actual fun rememberDynamicAccent(isDark: Boolean): Colors.Accent? {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
         return null
     }
@@ -21,7 +21,7 @@ internal actual fun rememberDynamicAccent(isDark: Boolean): Accent? {
     }
 
     return remember(scheme.primary, scheme.secondary, scheme.tertiary) {
-        Accent(
+        Colors.Accent(
             primary = scheme.primary,
             secondary = scheme.secondary,
             tertiary = scheme.tertiary,

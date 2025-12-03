@@ -9,13 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.Color
-import glass.yasan.concrete.foundation.color.Accent
 import glass.yasan.concrete.foundation.color.ColorTokens
-import glass.yasan.concrete.foundation.color.Content
-import glass.yasan.concrete.foundation.color.Layer
-import glass.yasan.concrete.foundation.color.LocalAccent
-import glass.yasan.concrete.foundation.color.LocalContent
-import glass.yasan.concrete.foundation.color.LocalLayer
+import glass.yasan.concrete.foundation.color.Colors
+import glass.yasan.concrete.foundation.color.LocalColors
 import glass.yasan.concrete.foundation.color.contentColor
 import glass.yasan.concrete.foundation.color.rememberAccent
 import glass.yasan.concrete.foundation.dimension.Dimensions
@@ -35,15 +31,14 @@ public fun ConcreteTheme(
     val accent = rememberAccent(isDark, primary, secondary, tertiary)
     val contentColors = if (isDark) ColorTokens.contentDark else ColorTokens.contentLight
     val layer = if (isDark) ColorTokens.layerDark else ColorTokens.layerLight
+    val colors = Colors(accent = accent, content = contentColors, layer = layer)
 
     MaterialTheme(
         colorScheme = createMaterial3ColorScheme(accent, contentColors, layer),
         typography = typography,
     ) {
         CompositionLocalProvider(
-            LocalAccent provides accent,
-            LocalContent provides contentColors,
-            LocalLayer provides layer,
+            LocalColors provides colors,
             LocalDimensions provides dimensions,
             content = content
         )
@@ -52,33 +47,23 @@ public fun ConcreteTheme(
 
 public object ConcreteTheme {
 
+    public val colors: Colors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalColors.current
+
     public val dimensions: Dimensions
         @Composable
         @ReadOnlyComposable
         get() = LocalDimensions.current
 
-    public val accent: Accent
-        @Composable
-        @ReadOnlyComposable
-        get() = LocalAccent.current
-
-    public val content: Content
-        @Composable
-        @ReadOnlyComposable
-        get() = LocalContent.current
-
-    public val layer: Layer
-        @Composable
-        @ReadOnlyComposable
-        get() = LocalLayer.current
-
 }
 
 @Composable
 private fun createMaterial3ColorScheme(
-    accent: Accent,
-    content: Content,
-    layer: Layer,
+    accent: Colors.Accent,
+    content: Colors.Content,
+    layer: Colors.Layer,
 ): ColorScheme = colorScheme.copy(
     background = layer.midground,
     inverseOnSurface = layer.foreground,

@@ -3,4 +3,4 @@ package glass.yasan.concrete.foundation.color
 import androidx.compose.runtime.Composable
 
 @Composable
-internal actual fun rememberDynamicAccent(isDark: Boolean): Accent? = null
+internal actual fun rememberDynamicAccent(isDark: Boolean): Colors.Accent? = null

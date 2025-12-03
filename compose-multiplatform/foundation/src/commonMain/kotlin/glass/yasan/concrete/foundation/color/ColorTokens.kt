@@ -22,13 +22,13 @@ public object ColorTokens {
     private val contentSubtleDark: Color = Color(0xFFA0A0A0)
 
     // Content
-    public val contentLight: Content = Content(
+    public val contentLight: Colors.Content = Colors.Content(
         normal = contentNormalLight,
         subtle = contentSubtleLight,
         inverseNormal = contentNormalDark,
         inverseSubtle = contentSubtleDark,
     )
-    public val contentDark: Content = Content(
+    public val contentDark: Colors.Content = Colors.Content(
         normal = contentNormalDark,
         subtle = contentSubtleDark,
         inverseNormal = contentNormalLight,
@@ -36,7 +36,7 @@ public object ColorTokens {
     )
 
     // Layer
-    public val layerLight: Layer = Layer(
+    public val layerLight: Colors.Layer = Colors.Layer(
         foreground = foregroundLight,
         midground = midgroundLight,
         background = backgroundLight,
@@ -44,7 +44,7 @@ public object ColorTokens {
         inverseMidground = midgroundDark,
         inverseBackground = backgroundDark,
     )
-    public val layerDark: Layer = Layer(
+    public val layerDark: Colors.Layer = Colors.Layer(
         foreground = foregroundDark,
         midground = midgroundDark,
         background = backgroundDark,

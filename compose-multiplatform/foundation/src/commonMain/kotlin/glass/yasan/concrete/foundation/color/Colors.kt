@@ -6,41 +6,47 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 
-public data class Accent(
-    val primary: Color,
-    val secondary: Color = primary,
-    val tertiary: Color = secondary,
-)
+public data class Colors(
+    val accent: Accent,
+    val content: Content,
+    val layer: Layer,
+) {
 
-public data class Content(
-    val normal: Color,
-    val subtle: Color,
-    val inverseNormal: Color,
-    val inverseSubtle: Color,
-)
+    public data class Accent(
+        val primary: Color,
+        val secondary: Color = primary,
+        val tertiary: Color = secondary,
+    )
 
-public data class Layer(
-    val foreground: Color,
-    val midground: Color,
-    val background: Color,
-    val inverseForeground: Color,
-    val inverseMidground: Color,
-    val inverseBackground: Color,
-)
+    public data class Content(
+        val normal: Color,
+        val subtle: Color,
+        val inverseNormal: Color,
+        val inverseSubtle: Color,
+    )
 
-internal val LocalAccent: ProvidableCompositionLocal<Accent> =
+    public data class Layer(
+        val foreground: Color,
+        val midground: Color,
+        val background: Color,
+        val inverseForeground: Color,
+        val inverseMidground: Color,
+        val inverseBackground: Color,
+    )
+
+}
+
+internal val LocalColors: ProvidableCompositionLocal<Colors> =
     compositionLocalOf {
-        Accent(primary = ColorTokens.accentPrimary)
+        Colors(
+            accent = Colors.Accent(primary = ColorTokens.accentPrimary),
+            content = ColorTokens.contentLight,
+            layer = ColorTokens.layerLight,
+        )
     }
 
-internal val LocalContent: ProvidableCompositionLocal<Content> =
-    compositionLocalOf { ColorTokens.contentLight }
-
-internal val LocalLayer: ProvidableCompositionLocal<Layer> =
-    compositionLocalOf { ColorTokens.layerLight }
-
 @Composable
-internal expect fun rememberDynamicAccent(isDark: Boolean): Accent?
+internal expect fun rememberDynamicAccent(isDark: Boolean): Colors.Accent?
 
 @Composable
 internal fun rememberAccent(
@@ -48,8 +54,8 @@ internal fun rememberAccent(
     primary: Color,
     secondary: Color,
     tertiary: Color,
-): Accent = rememberDynamicAccent(isDark) ?: remember(primary, secondary, tertiary) {
-    Accent(
+): Colors.Accent = rememberDynamicAccent(isDark) ?: remember(primary, secondary, tertiary) {
+    Colors.Accent(
         primary = primary,
         secondary = secondary,
         tertiary = tertiary,
