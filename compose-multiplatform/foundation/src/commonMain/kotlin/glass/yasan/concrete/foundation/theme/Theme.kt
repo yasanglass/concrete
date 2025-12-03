@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.Color
+import glass.yasan.concrete.foundation.annotation.ExperimentalConcreteApi
 import glass.yasan.concrete.foundation.color.ColorTokens
 import glass.yasan.concrete.foundation.color.Colors
 import glass.yasan.concrete.foundation.color.LocalColors
@@ -17,6 +18,7 @@ import glass.yasan.concrete.foundation.dimension.Dimensions
 import glass.yasan.concrete.foundation.dimension.LocalDimensions
 import glass.yasan.concrete.foundation.typography.rubikTypography
 
+@ExperimentalConcreteApi
 @Composable
 public fun ConcreteTheme(
     primary: Color = ColorTokens.accentPrimary,
@@ -44,6 +46,7 @@ public fun ConcreteTheme(
     }
 }
 
+@ExperimentalConcreteApi
 public object ConcreteTheme {
 
     public val colors: Colors
@@ -58,6 +61,7 @@ public object ConcreteTheme {
 
 }
 
+@ExperimentalConcreteApi
 @Composable
 private fun createMaterial3ColorScheme(
     accent: Colors.Accent,

@@ -5,7 +5,9 @@ import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
+import glass.yasan.concrete.foundation.annotation.ExperimentalConcreteApi
 
+@ExperimentalConcreteApi
 public data class Colors(
     val accent: Accent,
     val content: Content,
@@ -58,6 +60,7 @@ public data class Colors(
 
 }
 
+@ExperimentalConcreteApi
 internal val LocalColors: ProvidableCompositionLocal<Colors> =
     compositionLocalOf {
         Colors(
@@ -67,9 +70,11 @@ internal val LocalColors: ProvidableCompositionLocal<Colors> =
         )
     }
 
+@ExperimentalConcreteApi
 @Composable
 internal expect fun rememberDynamicAccent(isDark: Boolean): Colors.Accent?
 
+@ExperimentalConcreteApi
 @Composable
 internal fun rememberAccent(
     isDark: Boolean,

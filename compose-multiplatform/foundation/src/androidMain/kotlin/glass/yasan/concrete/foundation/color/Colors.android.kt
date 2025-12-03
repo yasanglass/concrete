@@ -6,7 +6,9 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
+import glass.yasan.concrete.foundation.annotation.ExperimentalConcreteApi
 
+@OptIn(ExperimentalConcreteApi::class)
 @Composable
 internal actual fun rememberDynamicAccent(isDark: Boolean): Colors.Accent? {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {

@@ -1,7 +1,9 @@
 package glass.yasan.concrete.foundation.color
 
 import androidx.compose.ui.graphics.Color
+import glass.yasan.concrete.foundation.annotation.ExperimentalConcreteApi
 
+@ExperimentalConcreteApi
 public object ColorTokens {
 
     // Accent
