@@ -12,6 +12,13 @@ public data class Colors(
     val layer: Layer,
 ) {
 
+    public companion object {
+        private const val CONTAINER_ALPHA = 0.5f
+
+        public fun Color.container(): Color = this.copy(alpha = CONTAINER_ALPHA)
+
+    }
+
     public data class Accent(
         val primary: Color,
         val secondary: Color = primary,

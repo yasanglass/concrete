@@ -11,6 +11,7 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.Color
 import glass.yasan.concrete.foundation.color.ColorTokens
 import glass.yasan.concrete.foundation.color.Colors
+import glass.yasan.concrete.foundation.color.Colors.Companion.container
 import glass.yasan.concrete.foundation.color.LocalColors
 import glass.yasan.concrete.foundation.color.contentColor
 import glass.yasan.concrete.foundation.color.rememberAccent
@@ -80,23 +81,23 @@ private fun createMaterial3ColorScheme(
     onSurfaceVariant = content.normal,
     onTertiary = contentColor(accent.tertiary),
     onTertiaryContainer = contentColor(accent.tertiary),
-    outline = content.normal,
-    outlineVariant = content.normal,
+    outline = layer.background,
+    outlineVariant = layer.background,
     primary = accent.primary,
-    primaryContainer = accent.primary,
+    primaryContainer = accent.primary.container(),
     scrim = layer.foreground,
     secondary = accent.secondary,
-    secondaryContainer = accent.secondary,
+    secondaryContainer = accent.secondary.container(),
     surface = layer.foreground,
     surfaceBright = layer.foreground,
-    surfaceContainer = layer.foreground,
-    surfaceContainerHigh = layer.foreground,
-    surfaceContainerHighest = layer.foreground,
-    surfaceContainerLow = layer.foreground,
-    surfaceContainerLowest = layer.foreground,
-    surfaceDim = layer.foreground,
-    surfaceTint = layer.foreground,
-    surfaceVariant = layer.foreground,
+    surfaceContainer = layer.midground,
+    surfaceContainerHigh = layer.midground,
+    surfaceContainerHighest = layer.midground,
+    surfaceContainerLow = layer.midground,
+    surfaceContainerLowest = layer.midground,
+    surfaceDim = layer.midground,
+    surfaceTint = layer.midground,
+    surfaceVariant = layer.midground,
     tertiary = accent.tertiary,
-    tertiaryContainer = accent.tertiary,
+    tertiaryContainer = accent.tertiary.container(),
 )
