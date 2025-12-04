@@ -9,7 +9,7 @@ private const val LUMINANCE_THRESHOLD = 0.5f
 private const val LUMINANCE_ADJUSTMENT_DEFAULT = 0.25f
 
 @ExperimentalConcreteApi
-public fun Color.toContainerColor(): Color = copy(alpha = CONTAINER_ALPHA)
+public fun Color.container(): Color = copy(alpha = CONTAINER_ALPHA)
 
 @ExperimentalConcreteApi
 public fun Color.content(): Color =
