@@ -32,7 +32,7 @@ public data class Colors(
         val onSecondary: Color = secondary.toContentColor()
         val onTertiary: Color = tertiary.toContentColor()
 
-        val primaryContainer: Color = primary.toContentColor()
+        val primaryContainer: Color = primary.toContainerColor()
         val secondaryContainer: Color = secondary.toContainerColor()
         val tertiaryContainer: Color = tertiary.toContainerColor()
 
