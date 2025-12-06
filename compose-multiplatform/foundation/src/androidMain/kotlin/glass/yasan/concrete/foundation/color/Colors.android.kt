@@ -10,7 +10,7 @@ import glass.yasan.concrete.foundation.annotation.ExperimentalConcreteApi
 
 @OptIn(ExperimentalConcreteApi::class)
 @Composable
-internal actual fun rememberDynamicAccent(isDark: Boolean): Colors.Accent? {
+internal actual fun rememberDynamicAccent(isDark: Boolean): DynamicAccent? {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
         return null
     }
@@ -23,7 +23,7 @@ internal actual fun rememberDynamicAccent(isDark: Boolean): Colors.Accent? {
     }
 
     return remember(scheme.primary, scheme.secondary, scheme.tertiary) {
-        Colors.Accent(
+        DynamicAccent(
             primary = scheme.primary,
             secondary = scheme.secondary,
             tertiary = scheme.tertiary,

@@ -28,7 +28,7 @@ public fun TextSubtle(
     Material3Text(
         text = text,
         modifier = modifier,
-        color = ConcreteTheme.colors.content.subtle,
+        color = ConcreteTheme.colors.contentSubtle,
         fontSize = fontSize,
         fontStyle = fontStyle,
         fontWeight = fontWeight,

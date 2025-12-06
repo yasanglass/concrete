@@ -33,8 +33,8 @@ public fun TextMono(
         text = text,
         modifier = modifier,
         color = color ?: when (prominence) {
-            SUBTLE -> ConcreteTheme.colors.content.subtle
-            else -> ConcreteTheme.colors.content.normal
+            SUBTLE -> ConcreteTheme.colors.contentSubtle
+            else -> ConcreteTheme.colors.content
         },
         fontFamily = rubikMonoFontFamily(),
         fontSize = fontSize,

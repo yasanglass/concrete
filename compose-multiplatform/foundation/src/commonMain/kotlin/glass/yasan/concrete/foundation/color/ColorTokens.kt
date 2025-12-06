@@ -6,53 +6,23 @@ import glass.yasan.concrete.foundation.annotation.ExperimentalConcreteApi
 @ExperimentalConcreteApi
 public object ColorTokens {
 
-    // Accent
-    public val accentPrimary: Color = Color(0xFF006970)
+    public val primary: Color = Color(0xFF006970)
 
-    // Light
     private val foregroundLight: Color = Color(0xFFFFFFFF)
     private val midgroundLight: Color = Color(0xFFEEEEEE)
     private val backgroundLight: Color = Color(0xFFD8D8D8)
-    private val contentNormalLight: Color = Color(0xFF212121)
+    private val contentLight: Color = Color(0xFF212121)
     private val contentSubtleLight: Color = Color(0xFF666666)
-
-    // Dark
     private val foregroundDark: Color = Color(0xFF1F1F1F)
     private val midgroundDark: Color = Color(0xFF121212)
     private val backgroundDark: Color = Color(0xFF000000)
-    private val contentNormalDark: Color = Color(0xFFE0E0E0)
+    private val contentDark: Color = Color(0xFFE0E0E0)
     private val contentSubtleDark: Color = Color(0xFFA0A0A0)
 
-    // Content
-    public val contentLight: Colors.Content = Colors.Content(
-        normal = contentNormalLight,
-        subtle = contentSubtleLight,
-        inverseNormal = contentNormalDark,
-        inverseSubtle = contentSubtleDark,
-    )
-    public val contentDark: Colors.Content = Colors.Content(
-        normal = contentNormalDark,
-        subtle = contentSubtleDark,
-        inverseNormal = contentNormalLight,
-        inverseSubtle = contentSubtleLight,
-    )
-
-    // Layer
-    public val layerLight: Colors.Layer = Colors.Layer(
-        foreground = foregroundLight,
-        midground = midgroundLight,
-        background = backgroundLight,
-        inverseForeground = foregroundDark,
-        inverseMidground = midgroundDark,
-        inverseBackground = backgroundDark,
-    )
-    public val layerDark: Colors.Layer = Colors.Layer(
-        foreground = foregroundDark,
-        midground = midgroundDark,
-        background = backgroundDark,
-        inverseForeground = foregroundLight,
-        inverseMidground = midgroundLight,
-        inverseBackground = backgroundLight,
-    )
+    internal fun foreground(isDark: Boolean): Color = if (isDark) foregroundDark else foregroundLight
+    internal fun midground(isDark: Boolean): Color = if (isDark) midgroundDark else midgroundLight
+    internal fun background(isDark: Boolean): Color = if (isDark) backgroundDark else backgroundLight
+    internal fun content(isDark: Boolean): Color = if (isDark) contentDark else contentLight
+    internal fun contentSubtle(isDark: Boolean): Color = if (isDark) contentSubtleDark else contentSubtleLight
 
 }

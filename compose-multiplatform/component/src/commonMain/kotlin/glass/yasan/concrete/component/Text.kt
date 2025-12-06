@@ -32,8 +32,8 @@ public fun Text(
         text = text,
         modifier = modifier,
         color = color ?: when (prominence) {
-            SUBTLE -> ConcreteTheme.colors.content.subtle
-            else -> ConcreteTheme.colors.content.normal
+            SUBTLE -> ConcreteTheme.colors.contentSubtle
+            else -> ConcreteTheme.colors.content
         },
         fontSize = fontSize,
         fontStyle = fontStyle,

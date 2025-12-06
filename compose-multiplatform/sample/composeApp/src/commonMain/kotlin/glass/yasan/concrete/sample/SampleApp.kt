@@ -31,19 +31,19 @@ fun SampleApp() {
             contentAlignment = Alignment.Center,
             modifier = Modifier
                 .fillMaxSize()
-                .background(ConcreteTheme.colors.layer.midground),
+                .background(ConcreteTheme.colors.midground),
         ) {
             Column(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(ConcreteTheme.colors.layer.foreground)
+                    .background(ConcreteTheme.colors.foreground)
                     .padding(16.dp),
             ) {
-                ColorBox(ConcreteTheme.colors.accent.primaryDark)
-                ColorBox(ConcreteTheme.colors.accent.primary)
-                ColorBox(ConcreteTheme.colors.accent.primaryLight)
+                ColorBox(ConcreteTheme.colors.primaryDark)
+                ColorBox(ConcreteTheme.colors.primary)
+                ColorBox(ConcreteTheme.colors.primaryLight)
                 TextMono(
                     text = stringResource(Res.string.app_title).uppercase(),
                     prominence = SUBTLE,
@@ -58,9 +58,9 @@ fun SampleApp() {
                     prominence = SUBTLE,
                     fontSize = 32.sp,
                 )
-                ColorBox(ConcreteTheme.colors.accent.secondaryLight)
-                ColorBox(ConcreteTheme.colors.accent.secondary)
-                ColorBox(ConcreteTheme.colors.accent.secondaryDark)
+                ColorBox(ConcreteTheme.colors.secondaryLight)
+                ColorBox(ConcreteTheme.colors.secondary)
+                ColorBox(ConcreteTheme.colors.secondaryDark)
             }
         }
     }

@@ -8,67 +8,62 @@ import androidx.compose.ui.graphics.Color
 import glass.yasan.concrete.foundation.annotation.ExperimentalConcreteApi
 
 @ExperimentalConcreteApi
-public data class Colors(
-    val accent: Accent,
-    val content: Content,
-    val layer: Layer,
-) {
+public class Colors internal constructor(
+    isDark: Boolean,
+    public val primary: Color,
+    public val secondary: Color = primary,
+    public val tertiary: Color = secondary,
 
-    public data class Accent(
-        val primary: Color,
-        val secondary: Color = primary,
-        val tertiary: Color = secondary,
-    ) {
+    public val primaryDark: Color = primary.darken(),
+    public val secondaryDark: Color = secondary.darken(),
+    public val tertiaryDark: Color = tertiary.darken(),
 
-        val primaryDark: Color = primary.darken()
-        val secondaryDark: Color = secondary.darken()
-        val tertiaryDark: Color = tertiary.darken()
+    public val primaryLight: Color = primary.lighten(),
+    public val secondaryLight: Color = secondary.lighten(),
+    public val tertiaryLight: Color = tertiary.lighten(),
 
-        val primaryLight: Color = primary.lighten()
-        val secondaryLight: Color = secondary.lighten()
-        val tertiaryLight: Color = tertiary.lighten()
+    public val primaryContainer: Color = primary.container(),
+    public val secondaryContainer: Color = secondary.container(),
+    public val tertiaryContainer: Color = tertiary.container(),
 
-        val onPrimary: Color = primary.content()
-        val onSecondary: Color = secondary.content()
-        val onTertiary: Color = tertiary.content()
+    public val onPrimary: Color = primary.content(),
+    public val onSecondary: Color = secondary.content(),
+    public val onTertiary: Color = tertiary.content(),
 
-        val primaryContainer: Color = primary.container()
-        val secondaryContainer: Color = secondary.container()
-        val tertiaryContainer: Color = tertiary.container()
+    public val content: Color = ColorTokens.content(isDark),
+    public val contentSubtle: Color = ColorTokens.contentSubtle(isDark),
 
-    }
+    public val inverseContent: Color = ColorTokens.content(!isDark),
+    public val inverseContentSubtle: Color = ColorTokens.contentSubtle(!isDark),
 
-    public data class Content(
-        val normal: Color,
-        val subtle: Color,
-        val inverseNormal: Color,
-        val inverseSubtle: Color,
-    )
+    public val foreground: Color = ColorTokens.foreground(isDark),
+    public val midground: Color = ColorTokens.midground(isDark),
+    public val background: Color = ColorTokens.background(isDark),
 
-    public data class Layer(
-        val foreground: Color,
-        val midground: Color,
-        val background: Color,
-        val inverseForeground: Color,
-        val inverseMidground: Color,
-        val inverseBackground: Color,
-    )
-
-}
+    public val inverseForeground: Color = ColorTokens.foreground(!isDark),
+    public val inverseMidground: Color = ColorTokens.midground(!isDark),
+    public val inverseBackground: Color = ColorTokens.background(!isDark),
+)
 
 @ExperimentalConcreteApi
 internal val LocalColors: ProvidableCompositionLocal<Colors> =
     compositionLocalOf {
         Colors(
-            accent = Colors.Accent(primary = ColorTokens.accentPrimary),
-            content = ColorTokens.contentLight,
-            layer = ColorTokens.layerLight,
+            isDark = false,
+            primary = ColorTokens.primary,
         )
     }
 
 @ExperimentalConcreteApi
+internal data class DynamicAccent(
+    val primary: Color,
+    val secondary: Color,
+    val tertiary: Color,
+)
+
+@ExperimentalConcreteApi
 @Composable
-internal expect fun rememberDynamicAccent(isDark: Boolean): Colors.Accent?
+internal expect fun rememberDynamicAccent(isDark: Boolean): DynamicAccent?
 
 @ExperimentalConcreteApi
 @Composable
@@ -77,8 +72,8 @@ internal fun rememberAccent(
     primary: Color,
     secondary: Color,
     tertiary: Color,
-): Colors.Accent = rememberDynamicAccent(isDark) ?: remember(primary, secondary, tertiary) {
-    Colors.Accent(
+): DynamicAccent = rememberDynamicAccent(isDark) ?: remember(primary, secondary, tertiary) {
+    DynamicAccent(
         primary = primary,
         secondary = secondary,
         tertiary = tertiary,

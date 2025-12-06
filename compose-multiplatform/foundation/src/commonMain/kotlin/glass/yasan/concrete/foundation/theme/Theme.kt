@@ -4,7 +4,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
-import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
@@ -21,22 +20,25 @@ import glass.yasan.concrete.foundation.typography.rubikTypography
 @ExperimentalConcreteApi
 @Composable
 public fun ConcreteTheme(
-    primary: Color = ColorTokens.accentPrimary,
+    primary: Color = ColorTokens.primary,
     secondary: Color = primary,
-    tertiary: Color = primary,
+    tertiary: Color = secondary,
     isDark: Boolean = isSystemInDarkTheme(),
     dimensions: Dimensions = ConcreteTheme.dimensions,
-    typography: Typography = rubikTypography(),
     content: @Composable () -> Unit,
 ) {
     val accent = rememberAccent(isDark, primary, secondary, tertiary)
-    val contentColors = if (isDark) ColorTokens.contentDark else ColorTokens.contentLight
-    val layer = if (isDark) ColorTokens.layerDark else ColorTokens.layerLight
-    val colors = Colors(accent = accent, content = contentColors, layer = layer)
+
+    val colors = Colors(
+        isDark = isDark,
+        primary = accent.primary,
+        secondary = accent.secondary,
+        tertiary = accent.tertiary,
+    )
 
     MaterialTheme(
-        colorScheme = createMaterial3ColorScheme(accent, contentColors, layer),
-        typography = typography,
+        colorScheme = colors.toMaterial3ColorScheme(),
+        typography = rubikTypography(),
     ) {
         CompositionLocalProvider(
             LocalColors provides colors,
@@ -63,43 +65,39 @@ public object ConcreteTheme {
 
 @ExperimentalConcreteApi
 @Composable
-private fun createMaterial3ColorScheme(
-    accent: Colors.Accent,
-    content: Colors.Content,
-    layer: Colors.Layer,
-): ColorScheme = colorScheme.copy(
-    background = layer.midground,
-    inverseOnSurface = layer.foreground,
-    inversePrimary = accent.onPrimary,
-    inverseSurface = layer.inverseForeground,
-    onBackground = content.normal,
+private fun Colors.toMaterial3ColorScheme(): ColorScheme = colorScheme.copy(
+    background = midground,
+    inverseOnSurface = foreground,
+    inversePrimary = onPrimary,
+    inverseSurface = inverseForeground,
+    onBackground = content,
     onError = Color.Unspecified,
     onErrorContainer = Color.Unspecified,
-    onPrimary = accent.onPrimary,
-    onPrimaryContainer = accent.onPrimary,
-    onSecondary = accent.onSecondary,
-    onSecondaryContainer = accent.onSecondary,
-    onSurface = content.normal,
-    onSurfaceVariant = content.normal,
-    onTertiary = accent.onTertiary,
-    onTertiaryContainer = accent.onTertiary,
-    outline = layer.background,
-    outlineVariant = layer.background,
-    primary = accent.primary,
-    primaryContainer = accent.primaryContainer,
-    scrim = layer.foreground,
-    secondary = accent.secondary,
-    secondaryContainer = accent.secondaryContainer,
-    surface = layer.foreground,
-    surfaceBright = layer.foreground,
-    surfaceContainer = layer.midground,
-    surfaceContainerHigh = layer.midground,
-    surfaceContainerHighest = layer.midground,
-    surfaceContainerLow = layer.midground,
-    surfaceContainerLowest = layer.midground,
-    surfaceDim = layer.midground,
-    surfaceTint = layer.midground,
-    surfaceVariant = layer.midground,
-    tertiary = accent.tertiary,
-    tertiaryContainer = accent.tertiaryContainer,
+    onPrimary = onPrimary,
+    onPrimaryContainer = onPrimary,
+    onSecondary = onSecondary,
+    onSecondaryContainer = onSecondary,
+    onSurface = content,
+    onSurfaceVariant = content,
+    onTertiary = onTertiary,
+    onTertiaryContainer = onTertiary,
+    outline = background,
+    outlineVariant = background,
+    primary = primary,
+    primaryContainer = primaryContainer,
+    scrim = foreground,
+    secondary = secondary,
+    secondaryContainer = secondaryContainer,
+    surface = foreground,
+    surfaceBright = foreground,
+    surfaceContainer = midground,
+    surfaceContainerHigh = midground,
+    surfaceContainerHighest = midground,
+    surfaceContainerLow = midground,
+    surfaceContainerLowest = midground,
+    surfaceDim = midground,
+    surfaceTint = midground,
+    surfaceVariant = midground,
+    tertiary = tertiary,
+    tertiaryContainer = tertiaryContainer,
 )
