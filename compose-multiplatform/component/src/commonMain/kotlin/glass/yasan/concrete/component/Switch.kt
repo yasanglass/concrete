@@ -1,6 +1,7 @@
 package glass.yasan.concrete.component
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import glass.yasan.concrete.foundation.theme.ConcreteTheme
 import androidx.compose.material3.Switch as Material3Switch
 import androidx.compose.material3.SwitchDefaults as Material3SwitchDefaults
@@ -9,6 +10,7 @@ import androidx.compose.material3.SwitchDefaults as Material3SwitchDefaults
 public fun Switch(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Material3Switch(
         checked = checked,
@@ -24,5 +26,6 @@ public fun Switch(
             checkedBorderColor = ConcreteTheme.colors.content,
             uncheckedBorderColor = ConcreteTheme.colors.content,
         ),
+        modifier = modifier,
     )
 }
