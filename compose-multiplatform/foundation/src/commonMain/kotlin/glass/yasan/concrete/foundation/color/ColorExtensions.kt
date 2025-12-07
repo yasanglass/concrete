@@ -28,6 +28,10 @@ public fun Color.lighten(factor: Float = LUMINANCE_ADJUSTMENT_DEFAULT): Color {
     return hslToColor(hsl, alpha)
 }
 
+public fun Color.heighten(isDark: Boolean): Color = if (isDark) lighten() else darken()
+
+public fun Color.lower(isDark: Boolean): Color = if (isDark) darken() else lighten()
+
 private fun Color.toHsl(): FloatArray {
     val r = red
     val g = green

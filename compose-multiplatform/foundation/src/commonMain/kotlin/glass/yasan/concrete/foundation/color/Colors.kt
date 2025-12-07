@@ -12,13 +12,13 @@ public class Colors internal constructor(
     public val secondary: Color = primary,
     public val tertiary: Color = secondary,
 
-    public val primaryDark: Color = primary.darken(),
-    public val secondaryDark: Color = secondary.darken(),
-    public val tertiaryDark: Color = tertiary.darken(),
+    public val primaryHigh: Color = primary.heighten(isDark),
+    public val secondaryHigh: Color = secondary.heighten(isDark),
+    public val tertiaryHigh: Color = tertiary.heighten(isDark),
 
-    public val primaryLight: Color = primary.lighten(),
-    public val secondaryLight: Color = secondary.lighten(),
-    public val tertiaryLight: Color = tertiary.lighten(),
+    public val primaryLow: Color = primary.lower(isDark),
+    public val secondaryLow: Color = secondary.lower(isDark),
+    public val tertiaryLow: Color = tertiary.lower(isDark),
 
     public val primaryContainer: Color = primary.container(),
     public val secondaryContainer: Color = secondary.container(),
