@@ -16,7 +16,6 @@ import glass.yasan.concrete.foundation.theme.ConcreteTheme
 public fun TextMono(
     text: String,
     modifier: Modifier = Modifier,
-    prominence: Prominence = NORMAL,
     color: Color? = null,
     fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle? = null,
@@ -30,10 +29,7 @@ public fun TextMono(
     Material3Text(
         text = text,
         modifier = modifier,
-        color = color ?: when (prominence) {
-            SUBTLE -> ConcreteTheme.colors.contentSubtle
-            else -> ConcreteTheme.colors.content
-        },
+        color = color ?: ConcreteTheme.colors.content,
         fontFamily = rubikMonoFontFamily(),
         fontSize = fontSize,
         fontStyle = fontStyle,

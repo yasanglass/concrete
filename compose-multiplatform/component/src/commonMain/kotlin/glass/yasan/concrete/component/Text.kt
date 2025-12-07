@@ -15,7 +15,6 @@ import glass.yasan.concrete.foundation.theme.ConcreteTheme
 public fun Text(
     text: String,
     modifier: Modifier = Modifier,
-    prominence: Prominence = NORMAL,
     color: Color? = null,
     fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle? = null,
@@ -29,10 +28,7 @@ public fun Text(
     Material3Text(
         text = text,
         modifier = modifier,
-        color = color ?: when (prominence) {
-            SUBTLE -> ConcreteTheme.colors.contentSubtle
-            else -> ConcreteTheme.colors.content
-        },
+        color = color ?: ConcreteTheme.colors.content,
         fontSize = fontSize,
         fontStyle = fontStyle,
         fontWeight = fontWeight,
