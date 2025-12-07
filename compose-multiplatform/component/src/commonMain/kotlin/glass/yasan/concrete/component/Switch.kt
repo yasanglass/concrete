@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,15 +26,18 @@ public fun Switch(
         onCheckedChange = onCheckedChange,
         enabled = enabled,
         colors = Material3SwitchDefaults.colors(
-            // Thumb color
-            checkedThumbColor = ConcreteTheme.colors.primary,
-            uncheckedThumbColor = ConcreteTheme.colors.content,
-            // Track color
-            checkedTrackColor = ConcreteTheme.colors.midground,
-            uncheckedTrackColor = ConcreteTheme.colors.midground,
-            // Border color
-            checkedBorderColor = ConcreteTheme.colors.content,
+            checkedBorderColor = ConcreteTheme.colors.primary,
+            checkedThumbColor = ConcreteTheme.colors.foreground,
+            checkedTrackColor = ConcreteTheme.colors.primary,
+            disabledCheckedBorderColor = ConcreteTheme.colors.contentDisabled,
+            disabledCheckedThumbColor = ConcreteTheme.colors.contentDisabled,
+            disabledCheckedTrackColor = ConcreteTheme.colors.midground,
+            disabledUncheckedBorderColor = ConcreteTheme.colors.contentDisabled,
+            disabledUncheckedThumbColor = ConcreteTheme.colors.contentDisabled,
+            disabledUncheckedTrackColor = ConcreteTheme.colors.midground,
             uncheckedBorderColor = ConcreteTheme.colors.content,
+            uncheckedThumbColor = ConcreteTheme.colors.content,
+            uncheckedTrackColor = ConcreteTheme.colors.foreground,
         ),
         modifier = modifier,
     )
@@ -45,29 +49,32 @@ private fun SwitchPreview() {
     val checked = arrayOf(true, false)
     val enabled = arrayOf(true, false)
 
-    ConcreteTheme {
-        Column(
-            modifier = Modifier.background(ConcreteTheme.colors.foreground)
-        ) {
-            checked.forEach { isChecked ->
-                enabled.forEach { isEnabled ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                    ) {
-                        val checkedStatus = if (isChecked) "Checked" else "Unchecked"
-                        val enabledStatus = if (isEnabled) "Enabled" else "Disabled"
+    Column {
+        ConcreteTheme {
+            Column(
+                modifier = Modifier.background(ConcreteTheme.colors.foreground)
+            ) {
+                checked.forEach { isChecked ->
+                    enabled.forEach { isEnabled ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(horizontal = 16.dp),
+                        ) {
+                            val checkedStatus = if (isChecked) "Checked" else "Unchecked"
+                            val enabledStatus = if (isEnabled) "Enabled" else "Disabled"
 
-                        Text(
-                            text = "Switch: $checkedStatus + $enabledStatus",
-                            modifier = Modifier.weight(1f),
-                        )
-                        Switch(
-                            checked = isChecked,
-                            onCheckedChange = {},
-                            enabled = isEnabled,
-                            modifier = Modifier.padding(8.dp),
-                        )
+                            Text(
+                                text = "Switch: $checkedStatus + $enabledStatus",
+                                modifier = Modifier.weight(1f),
+                            )
+                            Switch(
+                                checked = isChecked,
+                                onCheckedChange = {},
+                                enabled = isEnabled,
+                                modifier = Modifier.padding(8.dp),
+                            )
+                        }
+                        HorizontalDivider()
                     }
                 }
             }
