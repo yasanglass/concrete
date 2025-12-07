@@ -8,13 +8,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.sp
 import glass.yasan.concrete.foundation.theme.ConcreteTheme
 
 @Composable
 public fun TextSubtle(
     text: String,
     modifier: Modifier = Modifier,
-    fontSize: TextUnit = TextUnit.Unspecified,
+    fontSize: TextUnit = 14.sp,
     fontStyle: FontStyle? = null,
     fontWeight: FontWeight? = null,
     textAlign: TextAlign? = null,
