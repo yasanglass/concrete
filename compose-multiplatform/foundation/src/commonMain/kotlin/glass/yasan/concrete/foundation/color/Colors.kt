@@ -5,6 +5,7 @@ import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
+import glass.yasan.toolkit.compose.color.toContentColor
 
 public class Colors internal constructor(
     isDark: Boolean,
@@ -13,25 +14,25 @@ public class Colors internal constructor(
     public val secondary: Color = primary,
     public val tertiary: Color = secondary,
 
-    public val onPrimary: Color = primary.content(),
-    public val onSecondary: Color = secondary.content(),
-    public val onTertiary: Color = tertiary.content(),
+    public val onPrimary: Color = primary.toContentColor(),
+    public val onSecondary: Color = secondary.toContentColor(),
+    public val onTertiary: Color = tertiary.toContentColor(),
 
     public val primaryHigh: Color = primary.heighten(isDark),
     public val secondaryHigh: Color = secondary.heighten(isDark),
     public val tertiaryHigh: Color = tertiary.heighten(isDark),
 
-    public val onPrimaryHigh: Color = primaryHigh.content(),
-    public val onSecondaryHigh: Color = secondaryHigh.content(),
-    public val onTertiaryHigh: Color = tertiaryHigh.content(),
+    public val onPrimaryHigh: Color = primaryHigh.toContentColor(),
+    public val onSecondaryHigh: Color = secondaryHigh.toContentColor(),
+    public val onTertiaryHigh: Color = tertiaryHigh.toContentColor(),
 
     public val primaryLow: Color = primary.lower(isDark),
     public val secondaryLow: Color = secondary.lower(isDark),
     public val tertiaryLow: Color = tertiary.lower(isDark),
 
-    public val onPrimaryLow: Color = primaryLow.content(),
-    public val onSecondaryLow: Color = secondaryLow.content(),
-    public val onTertiaryLow: Color = tertiaryLow.content(),
+    public val onPrimaryLow: Color = primaryLow.toContentColor(),
+    public val onSecondaryLow: Color = secondaryLow.toContentColor(),
+    public val onTertiaryLow: Color = tertiaryLow.toContentColor(),
 
     public val content: Color = ColorTokens.content(isDark),
     public val contentSubtle: Color = ColorTokens.contentSubtle(isDark),
