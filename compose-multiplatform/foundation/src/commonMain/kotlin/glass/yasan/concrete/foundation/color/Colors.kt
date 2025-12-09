@@ -1,12 +1,14 @@
 package glass.yasan.concrete.foundation.color
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import glass.yasan.toolkit.compose.color.toContentColor
 
+@Immutable
 public class Colors internal constructor(
     isDark: Boolean,
 
