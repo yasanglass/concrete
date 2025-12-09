@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import glass.yasan.concrete.component.Switch
@@ -78,40 +79,46 @@ fun SampleApp() {
     }
 }
 
+private data class ColorItem(
+    val color: Color,
+    val onColor: Color,
+    val name: String,
+)
+
 @Composable
 private fun ColumnScope.ColorPalette() {
     ColorsRow(
-        arrayOf(
-            ConcreteTheme.colors.primaryHigh,
-            ConcreteTheme.colors.primary,
-            ConcreteTheme.colors.primaryLow
+        listOf(
+            ColorItem(ConcreteTheme.colors.primaryHigh, ConcreteTheme.colors.onPrimaryHigh, "primaryHigh"),
+            ColorItem(ConcreteTheme.colors.primary, ConcreteTheme.colors.onPrimary, "primary"),
+            ColorItem(ConcreteTheme.colors.primaryLow, ConcreteTheme.colors.onPrimaryLow, "primary Low"),
         )
     )
     ColorsRow(
-        arrayOf(
-            ConcreteTheme.colors.secondaryHigh,
-            ConcreteTheme.colors.secondary,
-            ConcreteTheme.colors.secondaryLow
+        listOf(
+            ColorItem(ConcreteTheme.colors.secondaryHigh, ConcreteTheme.colors.onSecondaryHigh, "Secondary High"),
+            ColorItem(ConcreteTheme.colors.secondary, ConcreteTheme.colors.onSecondary, "Secondary"),
+            ColorItem(ConcreteTheme.colors.secondaryLow, ConcreteTheme.colors.onSecondaryLow, "Secondary Low"),
         )
     )
     ColorsRow(
-        arrayOf(
-            ConcreteTheme.colors.tertiaryHigh,
-            ConcreteTheme.colors.tertiary,
-            ConcreteTheme.colors.tertiaryLow
+        listOf(
+            ColorItem(ConcreteTheme.colors.tertiaryHigh, ConcreteTheme.colors.onTertiaryHigh, "Tertiary High"),
+            ColorItem(ConcreteTheme.colors.tertiary, ConcreteTheme.colors.onTertiary, "Tertiary"),
+            ColorItem(ConcreteTheme.colors.tertiaryLow, ConcreteTheme.colors.onTertiaryLow, "Tertiary Low"),
         )
     )
     ColorsRow(
-        arrayOf(
-            ConcreteTheme.colors.content,
-            ConcreteTheme.colors.contentSubtle,
+        listOf(
+            ColorItem(ConcreteTheme.colors.content, ConcreteTheme.colors.foreground, "Content"),
+            ColorItem(ConcreteTheme.colors.contentSubtle, ConcreteTheme.colors.foreground, "Content Subtle"),
         )
     )
     ColorsRow(
-        arrayOf(
-            ConcreteTheme.colors.foreground,
-            ConcreteTheme.colors.midground,
-            ConcreteTheme.colors.background,
+        listOf(
+            ColorItem(ConcreteTheme.colors.foreground, ConcreteTheme.colors.content, "Foreground"),
+            ColorItem(ConcreteTheme.colors.midground, ConcreteTheme.colors.content, "Midground"),
+            ColorItem(ConcreteTheme.colors.background, ConcreteTheme.colors.content, "Background"),
         )
     )
 }
@@ -163,19 +170,27 @@ private fun DynamicAccentColorsSwitch(
 }
 
 @Composable
-private fun ColumnScope.ColorsRow(colors: Array<Color>) {
+private fun ColumnScope.ColorsRow(colors: List<ColorItem>) {
     Row(
         modifier = Modifier
             .weight(1f),
     ) {
-        colors.forEach { color ->
+        colors.forEach { item ->
             Box(
-                Modifier
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
                     .weight(1f)
                     .fillMaxHeight()
-                    .background(color)
+                    .background(item.color)
                     .border(color = ConcreteTheme.colors.background),
-            )
+            ) {
+                Text(
+                    text = item.name,
+                    color = item.onColor,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(16.dp),
+                )
+            }
         }
     }
 }
