@@ -5,7 +5,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
 
 public data class Dimensions(
-    val borderStrokeWidth: Dp,
+    val borderThickness: Dp,
 )
 
 internal val LocalDimensions: ProvidableCompositionLocal<Dimensions> =

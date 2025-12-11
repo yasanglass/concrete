@@ -11,7 +11,7 @@ import androidx.compose.material3.VerticalDivider as Material3VerticalDivider
 public fun VerticalDivider(
     modifier: Modifier = Modifier,
     color: Color = KepkoTheme.colors.background,
-    thickness: Dp = KepkoTheme.dimensions.borderStrokeWidth,
+    thickness: Dp = KepkoTheme.dimensions.borderThickness,
 ) {
     Material3VerticalDivider(
         modifier = modifier,

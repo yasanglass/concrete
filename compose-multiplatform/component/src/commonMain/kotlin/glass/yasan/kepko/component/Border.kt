@@ -15,7 +15,7 @@ import androidx.compose.foundation.border as ComposeFoundationBorder
 public fun Modifier.border(
     color: Color = KepkoTheme.colors.background,
     shape: Shape = RectangleShape,
-    width: Dp = KepkoTheme.dimensions.borderStrokeWidth,
+    width: Dp = KepkoTheme.dimensions.borderThickness,
 ): Modifier =
     ComposeFoundationBorder(
         width = width,
@@ -27,7 +27,7 @@ public fun Modifier.border(
 public fun Modifier.border(
     brush: Brush,
     shape: Shape = RectangleShape,
-    width: Dp = KepkoTheme.dimensions.borderStrokeWidth,
+    width: Dp = KepkoTheme.dimensions.borderThickness,
 ): Modifier =
     ComposeFoundationBorder(
         width = width,

@@ -3,7 +3,7 @@ package glass.yasan.kepko.foundation.dimension
 import androidx.compose.ui.unit.Dp
 
 public fun dimensions(
-    borderStrokeWidth: Dp = DimensionTokens.borderStrokeWidth,
+    borderThickness: Dp = DimensionTokens.borderThickness,
 ): Dimensions = Dimensions(
-    borderStrokeWidth = borderStrokeWidth,
+    borderThickness = borderThickness,
 )
