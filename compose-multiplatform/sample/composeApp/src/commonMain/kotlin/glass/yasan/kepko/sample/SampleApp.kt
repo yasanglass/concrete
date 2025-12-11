@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,7 +19,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import glass.yasan.kepko.component.HorizontalDivider
@@ -32,7 +30,6 @@ import glass.yasan.kepko.component.border
 import glass.yasan.kepko.composeapp.generated.resources.Res
 import glass.yasan.kepko.composeapp.generated.resources.app_title
 import glass.yasan.kepko.foundation.theme.KepkoTheme
-import glass.yasan.toolkit.compose.color.toContentColor
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -94,16 +91,16 @@ fun SampleApp() {
 private fun ColorPaletteContent() {
     ColorsRow(
         arrayOf(
-            KepkoTheme.colors.content to "Content",
-            KepkoTheme.colors.contentSubtle to "Content Subtle",
-            KepkoTheme.colors.contentDisabled to "Content Disabled",
+            KepkoTheme.colors.content,
+            KepkoTheme.colors.contentSubtle,
+            KepkoTheme.colors.contentDisabled,
         )
     )
     ColorsRow(
         arrayOf(
-            KepkoTheme.colors.foreground to "Foreground",
-            KepkoTheme.colors.midground to "Midground",
-            KepkoTheme.colors.background to "Background",
+            KepkoTheme.colors.foreground,
+            KepkoTheme.colors.midground,
+            KepkoTheme.colors.background,
         )
     )
 }
@@ -130,28 +127,20 @@ private fun DarkThemeSwitch(isDarkTheme: MutableState<Boolean>) {
 }
 
 @Composable
-private fun ColorsRow(colorsWithNames: Array<Pair<Color, String>>) {
+private fun ColorsRow(colorsWithNames: Array<Color>) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp),
     ) {
         colorsWithNames.forEach {
-            Box(
-                contentAlignment = Alignment.Center,
+            Spacer(
                 modifier = Modifier
                     .weight(1f)
                     .height(256.dp)
-                    .background(it.first)
+                    .background(it)
                     .border(color = KepkoTheme.colors.background),
-            ) {
-                Text(
-                    text = it.second,
-                    color = it.first.toContentColor(),
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(16.dp),
-                )
-            }
+            )
         }
     }
 }

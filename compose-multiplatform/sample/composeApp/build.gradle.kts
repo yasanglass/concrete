@@ -56,7 +56,6 @@ kotlin {
                 implementation(compose.components.uiToolingPreview)
                 implementation(libs.androidx.lifecycle.runtime.compose)
                 implementation(libs.androidx.navigation.compose)
-                implementation(libs.glass.yasan.toolkit.compose)
             }
         }
         jvmMain {

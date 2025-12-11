@@ -48,7 +48,6 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(libs.androidx.lifecycle.runtime.compose)
-                implementation(libs.glass.yasan.toolkit.compose)
                 implementation(compose.components.resources)
                 implementation(compose.components.uiToolingPreview)
                 implementation(compose.foundation)
