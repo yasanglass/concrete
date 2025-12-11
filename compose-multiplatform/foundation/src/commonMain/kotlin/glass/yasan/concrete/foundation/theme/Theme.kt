@@ -16,15 +16,13 @@ import glass.yasan.concrete.foundation.typography.rubikTypography
 @Composable
 public fun ConcreteTheme(
     isDark: Boolean = isSystemInDarkTheme(),
+    colors: Colors = Colors(isDark = isDark),
     dimensions: Dimensions = ConcreteTheme.dimensions,
+    material3ColorScheme: ColorScheme = colors.toMaterial3ColorScheme(),
     content: @Composable () -> Unit,
 ) {
-    val colors = Colors(
-        isDark = isDark,
-    )
-
     MaterialTheme(
-        colorScheme = colors.toMaterial3ColorScheme(),
+        colorScheme = material3ColorScheme,
         typography = rubikTypography(),
     ) {
         CompositionLocalProvider(
