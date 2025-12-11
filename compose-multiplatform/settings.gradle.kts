@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "concrete"
+rootProject.name = "kepko"
 include(":foundation")
 include(":component")
 include(":sample")

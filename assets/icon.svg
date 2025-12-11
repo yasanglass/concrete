@@ -4,10 +4,10 @@
     <g transform="matrix(10.6272,0,0,10.6272,147.603,345.268)">
         <text x="0px" y="0px" style="font-family:'RubikMonoOne-Regular', 'Rubik Mono One';font-size:24px;">T</text>
     </g>
-    <path d="M512,256C512,397.29 397.29,512 256,512C114.71,512 0,397.29 0,256C0,114.71 114.71,0 256,0C397.29,0 512,114.71 512,256Z"/>
+    <path d="M512,256C512,397.29 397.29,512 256,512C114.71,512 0,397.29 0,256C0,114.71 114.71,0 256,0C397.29,0 512,114.71 512,256Z" style="fill:rgb(31,31,31);"/>
     <g transform="matrix(10.6272,0,0,10.6272,147.603,345.268)">
         <g transform="matrix(24,0,0,24,20.4,0)">
         </g>
-        <text x="0px" y="0px" style="font-family:'RubikMonoOne-Regular', 'Rubik Mono One';font-size:24px;fill:white;">C</text>
+        <text x="0px" y="0px" style="font-family:'RubikMonoOne-Regular', 'Rubik Mono One';font-size:24px;fill:rgb(224,224,224);">K</text>
     </g>
 </svg>

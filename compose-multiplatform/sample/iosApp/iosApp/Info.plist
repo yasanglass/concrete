@@ -3,7 +3,7 @@
 <plist version="1.0">
     <dict>
         <key>CFBundleDisplayName</key>
-        <string>Concrete</string>
+        <string>Kepko</string>
         <key>CADisableMinimumFrameDurationOnPhone</key>
         <true/>
         <key>LSApplicationQueriesSchemes</key>

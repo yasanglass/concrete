@@ -2,11 +2,11 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 2000 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g transform="matrix(1.125,0,0,1.33333,-125,-350)">
-        <path d="M1800,449.944L1800,450.056C1800,532.813 1720.37,600 1622.29,600L377.711,600C279.63,600 200,532.813 200,450.056L200,449.944C200,367.187 279.63,300 377.711,300L1622.29,300C1720.37,300 1800,367.187 1800,449.944Z" style="fill:rgb(58,58,58);"/>
+        <path d="M1800,449.944L1800,450.056C1800,532.813 1720.37,600 1622.29,600L377.711,600C279.63,600 200,532.813 200,450.056L200,449.944C200,367.187 279.63,300 377.711,300L1622.29,300C1720.37,300 1800,367.187 1800,449.944Z" style="fill:rgb(31,31,31);"/>
     </g>
     <g transform="matrix(9.31762,0,0,9.31762,240.912,328.268)">
-        <g transform="matrix(24,0,0,24,163.2,0)">
+        <g transform="matrix(1,0,0,1,30.000014,0)">
+            <text x="0px" y="0px" style="font-family:'RubikMonoOne-Regular', 'Rubik Mono One';font-size:24px;fill:rgb(224,224,224);">KEPKO</text>
         </g>
-        <text x="0px" y="0px" style="font-family:'RubikMonoOne-Regular', 'Rubik Mono One';font-size:24px;fill:white;">CONCRETE</text>
     </g>
 </svg>

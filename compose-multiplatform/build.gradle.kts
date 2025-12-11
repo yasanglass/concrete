@@ -15,13 +15,13 @@ detekt {
     allRules = false
     config.setFrom(
         "$projectDir/detekt/detekt.yml",
-        "$projectDir/detekt/detekt-concrete.yml",
+        "$projectDir/detekt/detekt-kepko.yml",
     )
     autoCorrect = true
 }
 
 allprojects {
-    group = "glass.yasan.concrete"
+    group = "glass.yasan.kepko"
     version = "0.8.0"
 }
 
@@ -31,7 +31,7 @@ fun Project.configureDetekt() {
         buildUponDefaultConfig = true
         config.setFrom(
             "$rootDir/detekt/detekt.yml",
-            "$rootDir/detekt/detekt-concrete.yml",
+            "$rootDir/detekt/detekt-kepko.yml",
         )
         source.from(
             "src/androidMain/kotlin",
@@ -58,10 +58,10 @@ fun Project.configurePublishing() {
         signAllPublications()
 
         pom {
-            name.set("Concrete")
+            name.set("Kepko")
             description.set("A work-in-progress design system for Compose Multiplatform.")
             inceptionYear.set("2025")
-            url.set("https://github.com/yasanglass/concrete/")
+            url.set("https://github.com/yasanglass/kepko/")
             licenses {
                 license {
                     name.set("The Apache License, Version 2.0")
@@ -77,9 +77,9 @@ fun Project.configurePublishing() {
                 }
             }
             scm {
-                url.set("https://github.com/yasanglass/concrete/")
-                connection.set("scm:git:git://github.com/yasanglass/concrete.git")
-                developerConnection.set("scm:git:ssh://git@github.com/yasanglass/concrete.git")
+                url.set("https://github.com/yasanglass/kepko/")
+                connection.set("scm:git:git://github.com/yasanglass/kepko.git")
+                developerConnection.set("scm:git:ssh://git@github.com/yasanglass/kepko.git")
             }
         }
     }

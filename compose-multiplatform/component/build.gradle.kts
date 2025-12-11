@@ -92,7 +92,7 @@ kotlin {
 }
 
 android {
-    namespace = "glass.yasan.concrete.$artifactId"
+    namespace = "glass.yasan.kepko.$artifactId"
     compileSdk = libs.versions.android.sdk.compile.get().toInt()
 
     defaultConfig {

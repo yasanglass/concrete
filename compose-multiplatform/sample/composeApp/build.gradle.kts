@@ -73,11 +73,11 @@ kotlin {
 }
 
 android {
-    namespace = "glass.yasan.concrete.sample"
+    namespace = "glass.yasan.kepko.sample"
     compileSdk = libs.versions.sample.android.sdk.compile.get().toInt()
 
     defaultConfig {
-        applicationId = "glass.yasan.concrete.sample"
+        applicationId = "glass.yasan.kepko.sample"
         minSdk = libs.versions.sample.android.sdk.min.get().toInt()
         targetSdk = libs.versions.sample.android.sdk.target.get().toInt()
         versionCode = 1
@@ -105,16 +105,16 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "glass.yasan.concrete.sample.MainKt"
+        mainClass = "glass.yasan.kepko.sample.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "Concrete"
+            packageName = "Kepko"
             packageVersion = "1.0.0"
             macOS {
                 iconFile.set(project.file("src/jvmMain/resources/app_icon.icns"))
-                bundleID = "glass.yasan.concrete.sample"
-                dockName = "Concrete"
+                bundleID = "glass.yasan.kepko.sample"
+                dockName = "Kepko"
             }
             windows {
                 iconFile.set(project.file("src/commonMain/composeResources/drawable/app_icon.png"))

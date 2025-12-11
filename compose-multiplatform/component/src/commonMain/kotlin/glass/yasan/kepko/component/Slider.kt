@@ -1,0 +1,82 @@
+package glass.yasan.kepko.component
+
+import androidx.annotation.IntRange
+import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import glass.yasan.kepko.foundation.theme.KepkoTheme
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import androidx.compose.material3.Slider as Material3Slider
+import androidx.compose.material3.SliderDefaults as Material3SliderDefaults
+
+@Composable
+public fun Slider(
+    value: Float,
+    onValueChange: (Float) -> Unit,
+    onValueChangeFinished: (() -> Unit)? = null,
+    valueRange: ClosedFloatingPointRange<Float> = 0f..1f,
+    @IntRange(from = 0) steps: Int = 0,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    Material3Slider(
+        value = value,
+        onValueChange = onValueChange,
+        onValueChangeFinished = onValueChangeFinished,
+        enabled = enabled,
+        valueRange = valueRange,
+        steps = steps,
+        interactionSource = interactionSource,
+        colors = Material3SliderDefaults.colors(
+            activeTickColor = KepkoTheme.colors.foreground,
+            activeTrackColor = KepkoTheme.colors.content,
+            disabledActiveTickColor = KepkoTheme.colors.foreground,
+            disabledActiveTrackColor = KepkoTheme.colors.contentSubtle,
+            disabledInactiveTickColor = KepkoTheme.colors.contentSubtle,
+            disabledInactiveTrackColor = KepkoTheme.colors.background,
+            disabledThumbColor = KepkoTheme.colors.background,
+            inactiveTickColor = KepkoTheme.colors.content,
+            inactiveTrackColor = KepkoTheme.colors.background,
+            thumbColor = KepkoTheme.colors.content,
+        ),
+        modifier = modifier,
+    )
+}
+
+@Preview
+@Composable
+private fun SliderPreview() {
+    val values = arrayOf(0, 25, 50, 75, 100)
+    val enabled = arrayOf(true, false)
+
+    Column {
+        KepkoTheme {
+            Column(
+                modifier = Modifier.background(KepkoTheme.colors.foreground)
+            ) {
+                values.forEach { value ->
+                    enabled.forEach { isEnabled ->
+                        Column(
+                            modifier = Modifier.padding(16.dp),
+                        ) {
+                            Slider(
+                                value = value / 100f,
+                                onValueChange = {},
+                                steps = 5,
+                                enabled = isEnabled,
+                            )
+                        }
+                        HorizontalDivider()
+                    }
+                }
+            }
+        }
+    }
+}

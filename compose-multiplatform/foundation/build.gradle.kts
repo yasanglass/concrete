@@ -85,7 +85,7 @@ kotlin {
 }
 
 android {
-    namespace = "glass.yasan.concrete.$artifactId"
+    namespace = "glass.yasan.kepko.$artifactId"
     compileSdk = libs.versions.android.sdk.compile.get().toInt()
 
     defaultConfig {
@@ -100,7 +100,7 @@ android {
 
 compose.resources {
     publicResClass = true
-    packageOfResClass = "glass.yasan.concrete.$artifactId"
+    packageOfResClass = "glass.yasan.kepko.$artifactId"
     generateResClass = auto
 }
 
