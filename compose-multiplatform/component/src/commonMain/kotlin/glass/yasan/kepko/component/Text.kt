@@ -16,7 +16,7 @@ import glass.yasan.kepko.foundation.theme.KepkoTheme
 public fun Text(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color? = null,
+    color: Color = KepkoTheme.colors.content,
     fontSize: TextUnit = 14.sp,
     fontStyle: FontStyle? = null,
     fontWeight: FontWeight? = null,
@@ -29,7 +29,7 @@ public fun Text(
     Material3Text(
         text = text,
         modifier = modifier,
-        color = color ?: KepkoTheme.colors.content,
+        color = color,
         fontSize = fontSize,
         fontStyle = fontStyle,
         fontWeight = fontWeight,

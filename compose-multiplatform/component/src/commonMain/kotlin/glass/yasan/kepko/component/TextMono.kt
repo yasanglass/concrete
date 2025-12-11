@@ -17,7 +17,7 @@ import glass.yasan.kepko.foundation.theme.KepkoTheme
 public fun TextMono(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color? = null,
+    color: Color = KepkoTheme.colors.content,
     fontSize: TextUnit = 14.sp,
     fontStyle: FontStyle? = null,
     fontWeight: FontWeight? = null,
@@ -30,7 +30,7 @@ public fun TextMono(
     Material3Text(
         text = text,
         modifier = modifier,
-        color = color ?: KepkoTheme.colors.content,
+        color = color,
         fontFamily = rubikMonoFontFamily(),
         fontSize = fontSize,
         fontStyle = fontStyle,
