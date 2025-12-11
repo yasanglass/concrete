@@ -48,7 +48,7 @@ public object ConcreteTheme {
 }
 
 @Composable
-private fun Colors.toMaterial3ColorScheme(): ColorScheme = colorScheme.copy(
+public fun Colors.toMaterial3ColorScheme(): ColorScheme = colorScheme.copy(
     background = midground,
     inverseOnSurface = foreground,
     inverseSurface = inverseForeground,
