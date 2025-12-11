@@ -22,7 +22,7 @@ detekt {
 
 allprojects {
     group = "glass.yasan.concrete"
-    version = "0.7.0"
+    version = "0.8.0"
 }
 
 fun Project.configureDetekt() {
