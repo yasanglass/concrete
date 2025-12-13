@@ -1,5 +1,6 @@
 package glass.yasan.kepko.component
 
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Text as Material3Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -9,14 +10,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.sp
-import glass.yasan.kepko.foundation.theme.KepkoTheme
 
 @Composable
 public fun Text(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = KepkoTheme.colors.content,
+    color: Color = LocalContentColor.current,
     fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle? = null,
     fontWeight: FontWeight? = null,

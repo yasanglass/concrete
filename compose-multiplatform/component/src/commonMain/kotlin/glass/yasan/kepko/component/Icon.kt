@@ -1,6 +1,7 @@
 package glass.yasan.kepko.component
 
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -16,7 +17,7 @@ import androidx.compose.material3.Icon as Material3Icon
 public fun Icon(
     imageVector: ImageVector,
     contentDescription: String?,
-    color: Color = KepkoTheme.colors.content,
+    color: Color = LocalContentColor.current,
     modifier: Modifier = Modifier,
     size: Dp = KepkoTheme.dimensions.iconSize,
 ) {
@@ -33,7 +34,7 @@ public fun Icon(
 public fun Icon(
     painter: Painter,
     contentDescription: String?,
-    color: Color = KepkoTheme.colors.content,
+    color: Color = LocalContentColor.current,
     modifier: Modifier = Modifier,
     size: Dp = KepkoTheme.dimensions.iconSize,
 ) {
@@ -50,7 +51,7 @@ public fun Icon(
 public fun Icon(
     bitmap: ImageBitmap,
     contentDescription: String?,
-    color: Color = KepkoTheme.colors.content,
+    color: Color = LocalContentColor.current,
     modifier: Modifier = Modifier,
     size: Dp = KepkoTheme.dimensions.iconSize,
 ) {
