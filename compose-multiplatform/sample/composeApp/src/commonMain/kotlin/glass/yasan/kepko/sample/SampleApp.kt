@@ -44,6 +44,13 @@ fun SampleApp() {
     KepkoTheme(
         isDark = isDarkTheme.value,
     ) {
+
+        SystemBarColorsEffect(
+            statusBarColor = KepkoTheme.colors.foreground,
+            navigationBarColor = KepkoTheme.colors.foreground,
+            isDark = isDarkTheme.value,
+        )
+
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
