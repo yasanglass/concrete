@@ -2,6 +2,7 @@ package glass.yasan.kepko.foundation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
@@ -28,7 +29,8 @@ public fun KepkoTheme(
         CompositionLocalProvider(
             LocalColors provides colors,
             LocalDimensions provides dimensions,
-            content = content
+            LocalContentColor provides colors.content,
+            content = content,
         )
     }
 }
