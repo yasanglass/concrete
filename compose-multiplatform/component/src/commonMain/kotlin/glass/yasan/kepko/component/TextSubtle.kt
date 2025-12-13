@@ -15,7 +15,7 @@ import glass.yasan.kepko.foundation.theme.KepkoTheme
 public fun TextSubtle(
     text: String,
     modifier: Modifier = Modifier,
-    fontSize: TextUnit = 14.sp,
+    fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle? = null,
     fontWeight: FontWeight? = null,
     textAlign: TextAlign? = null,

@@ -18,7 +18,7 @@ public fun TextMono(
     text: String,
     modifier: Modifier = Modifier,
     color: Color = KepkoTheme.colors.content,
-    fontSize: TextUnit = 14.sp,
+    fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle? = null,
     fontWeight: FontWeight? = null,
     textAlign: TextAlign? = null,
