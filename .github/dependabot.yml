@@ -7,7 +7,7 @@ updates:
     time: "16:30"
     timezone: "Europe/Prague"
   cooldown:
-    default-days: 14
+    default-days: 7
     exclude:
     - "glass.yasan.*"
   labels: 
@@ -31,7 +31,7 @@ updates:
     time: "16:30"
     timezone: "Europe/Prague"
   cooldown:
-    default-days: 14
+    default-days: 7
   labels: 
     - 'github actions'
     - 'dependencies'
