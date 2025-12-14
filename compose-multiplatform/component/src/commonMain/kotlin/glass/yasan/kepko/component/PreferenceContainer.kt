@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
+import glass.yasan.kepko.foundation.color.ProvideLocalContentColor
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -54,7 +55,9 @@ public fun PreferenceContainer(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            leadingContent()
+            ProvideLocalContentColor(titleContentColor) {
+                leadingContent()
+            }
             Column(
                 verticalArrangement = Arrangement.spacedBy(4.dp),
                 modifier = Modifier.weight(1f),
