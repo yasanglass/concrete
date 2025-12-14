@@ -1,4 +1,4 @@
-package glass.yasan.kepko.component
+package glass.yasan.kepko.foundation.border
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

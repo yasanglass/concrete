@@ -25,10 +25,10 @@ import glass.yasan.kepko.component.PreferenceSwitch
 import glass.yasan.kepko.component.Slider
 import glass.yasan.kepko.component.Text
 import glass.yasan.kepko.component.TextMono
-import glass.yasan.kepko.component.border
 import glass.yasan.kepko.composeapp.generated.resources.Res
 import glass.yasan.kepko.composeapp.generated.resources.app_title
 import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
+import glass.yasan.kepko.foundation.border.border
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
