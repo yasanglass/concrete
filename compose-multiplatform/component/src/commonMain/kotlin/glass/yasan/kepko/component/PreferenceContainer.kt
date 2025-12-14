@@ -1,12 +1,16 @@
 package glass.yasan.kepko.component
 
+import androidx.compose.foundation.Indication
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,9 +33,10 @@ public fun PreferenceContainer(
     onClick: () -> Unit = {},
     description: String? = null,
     enabled: Boolean = true,
-    leadingContent: @Composable () -> Unit = {},
-    trailingContent: @Composable () -> Unit = {},
     annotation: PreferenceAnnotation? = null,
+    interactionSource: MutableInteractionSource? = null,
+    indication: Indication? = null,
+    content: @Composable () -> Unit,
 ) {
     val titleContentColor = if (enabled) KepkoTheme.colors.content else KepkoTheme.colors.contentDisabled
     val descriptionContentColor = if (enabled) KepkoTheme.colors.contentSubtle else KepkoTheme.colors.contentDisabled
@@ -42,6 +47,79 @@ public fun PreferenceContainer(
             .border(color = KepkoTheme.colors.background, shape)
             .clip(shape)
             .clickable(
+                interactionSource = interactionSource,
+                indication = indication,
+                enabled = enabled,
+                onClick = onClick,
+            )
+            .background(KepkoTheme.colors.foreground)
+            .padding(
+                vertical = 8.dp,
+                horizontal = 24.dp,
+            ),
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Column(
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+                modifier = Modifier.weight(1f).padding(vertical = 4.dp),
+            ) {
+                Text(
+                    text = title,
+                    color = titleContentColor,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 16.sp,
+                )
+                description?.let {
+                    Text(
+                        text = it,
+                        color = descriptionContentColor,
+                        lineHeight = 16.sp,
+                        fontSize = 12.sp,
+                    )
+                }
+                ProvideLocalContentColor(titleContentColor) {
+                    content()
+                }
+                annotation?.let {
+                    Pill(
+                        text = it.text(),
+                        containerColor = it.containerColor(),
+                        contentColor = it.contentColor(),
+                        modifier = Modifier.padding(vertical = 4.dp),
+                    )
+                }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalKepkoApi::class)
+@Composable
+public fun PreferenceContainer(
+    title: String,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit = {},
+    description: String? = null,
+    enabled: Boolean = true,
+    leadingContent: @Composable () -> Unit = {},
+    trailingContent: @Composable () -> Unit = {},
+    annotation: PreferenceAnnotation? = null,
+    interactionSource: MutableInteractionSource? = null,
+) {
+    val titleContentColor = if (enabled) KepkoTheme.colors.content else KepkoTheme.colors.contentDisabled
+    val descriptionContentColor = if (enabled) KepkoTheme.colors.contentSubtle else KepkoTheme.colors.contentDisabled
+    val shape = RoundedCornerShape(32.dp)
+
+    Column(
+        modifier = modifier
+            .border(color = KepkoTheme.colors.background, shape)
+            .clip(shape)
+            .clickable(
+                interactionSource = interactionSource,
                 enabled = enabled,
                 onClick = onClick,
             )
@@ -94,7 +172,7 @@ public fun PreferenceContainer(
 @OptIn(ExperimentalKepkoApi::class)
 @Preview
 @Composable
-private fun PreferenceContainerPreview() {
+private fun PreferenceContainerHorizontalPreview() {
     val annotations = arrayOf(PreferenceAnnotation.experimental, null)
     val descriptions = arrayOf(
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -116,6 +194,59 @@ private fun PreferenceContainerPreview() {
                         enabled = true,
                         annotation = annotation,
                         modifier = Modifier.padding(horizontal = 16.dp),
+                        content = {
+                            Spacer(
+                                modifier = Modifier
+                                    .size(32.dp)
+                                    .background(KepkoTheme.colors.information),
+                            )
+                        },
+                    )
+                }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalKepkoApi::class)
+@Preview
+@Composable
+private fun PreferenceContainerVerticalPreview() {
+    val annotations = arrayOf(PreferenceAnnotation.experimental, null)
+    val descriptions = arrayOf(
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        null
+    )
+
+    KepkoTheme {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            modifier = Modifier
+                .background(KepkoTheme.colors.midground)
+                .padding(vertical = 16.dp),
+        ) {
+            annotations.forEach { annotation ->
+                descriptions.forEach { description ->
+                    PreferenceContainer(
+                        title = "Preference Container",
+                        description = description,
+                        enabled = true,
+                        annotation = annotation,
+                        modifier = Modifier.padding(horizontal = 16.dp),
+                        leadingContent = {
+                            Spacer(
+                                modifier = Modifier
+                                    .size(32.dp)
+                                    .background(KepkoTheme.colors.information),
+                            )
+                        },
+                        trailingContent = {
+                            Spacer(
+                                modifier = Modifier
+                                    .size(32.dp)
+                                    .background(KepkoTheme.colors.caution),
+                            )
+                        },
                     )
                 }
             }

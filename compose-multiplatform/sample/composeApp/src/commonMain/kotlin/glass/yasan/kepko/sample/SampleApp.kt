@@ -21,9 +21,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import glass.yasan.kepko.component.PreferenceAnnotation
+import glass.yasan.kepko.component.PreferenceSlider
 import glass.yasan.kepko.component.PreferenceSwitch
-import glass.yasan.kepko.component.Slider
-import glass.yasan.kepko.component.Text
 import glass.yasan.kepko.component.TextMono
 import glass.yasan.kepko.composeapp.generated.resources.Res
 import glass.yasan.kepko.composeapp.generated.resources.app_title
@@ -33,6 +32,7 @@ import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
+@OptIn(ExperimentalKepkoApi::class)
 @Preview
 @Composable
 fun SampleApp() {
@@ -73,20 +73,13 @@ fun SampleApp() {
             item { DarkThemeSwitch(isDarkTheme) }
             item { Spacer(Modifier.height(12.dp)) }
             item {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    Text(text = "Slider")
-                    Spacer(Modifier.weight(1f))
-                    Text(text = sliderValue.value.toString())
-                }
-            }
-            item {
-                Slider(
+                PreferenceSlider(
+                    title = "Slider",
+                    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                     value = sliderValue.value,
                     onValueChange = { sliderValue.value = it },
                     steps = 9,
+                    annotation = PreferenceAnnotation.new,
                 )
             }
         }
