@@ -37,7 +37,7 @@ public fun ButtonText(
     containerColor: Color = KepkoTheme.colors.content,
     contentColor: Color = contentColorFor(containerColor),
     enabled: Boolean = true,
-    shape: Shape = CircleShape,
+    shape: Shape = KepkoTheme.shapes.button,
     textAlign: TextAlign = TextAlign.Center,
     border: BorderStroke? = borderStrokeFor(containerColor),
     elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),

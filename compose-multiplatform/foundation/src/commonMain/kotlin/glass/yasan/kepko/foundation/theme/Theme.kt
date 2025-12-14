@@ -12,6 +12,8 @@ import glass.yasan.kepko.foundation.color.Colors
 import glass.yasan.kepko.foundation.color.LocalColors
 import glass.yasan.kepko.foundation.dimension.Dimensions
 import glass.yasan.kepko.foundation.dimension.LocalDimensions
+import glass.yasan.kepko.foundation.shape.LocalShapes
+import glass.yasan.kepko.foundation.shape.Shapes
 import glass.yasan.kepko.foundation.typography.rubikTypography
 
 @Composable
@@ -19,6 +21,7 @@ public fun KepkoTheme(
     isDark: Boolean = isSystemInDarkTheme(),
     colors: Colors = Colors(isDark = isDark),
     dimensions: Dimensions = KepkoTheme.dimensions,
+    shapes: Shapes = KepkoTheme.shapes,
     material3ColorScheme: ColorScheme = colors.toMaterial3ColorScheme(),
     content: @Composable () -> Unit,
 ) {
@@ -29,6 +32,7 @@ public fun KepkoTheme(
         CompositionLocalProvider(
             LocalColors provides colors,
             LocalDimensions provides dimensions,
+            LocalShapes provides shapes,
             LocalContentColor provides colors.content,
             content = content,
         )
@@ -46,6 +50,11 @@ public object KepkoTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalDimensions.current
+
+    public val shapes: Shapes
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalShapes.current
 
 }
 
