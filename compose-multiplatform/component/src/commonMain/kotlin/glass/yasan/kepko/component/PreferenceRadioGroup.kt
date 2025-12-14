@@ -14,11 +14,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-@OptIn(ExperimentalKepkoApi::class)
 @Composable
 public fun PreferenceRadioGroup(
     title: String,
@@ -72,7 +70,6 @@ public data class PreferenceRadioGroupItem(
     val title: @Composable () -> String
 )
 
-@OptIn(ExperimentalKepkoApi::class)
 @Preview
 @Composable
 private fun PreferenceRadioGroupPreview() {

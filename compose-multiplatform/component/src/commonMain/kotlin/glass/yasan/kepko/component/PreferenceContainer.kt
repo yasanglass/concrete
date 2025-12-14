@@ -19,13 +19,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.border.border
 import glass.yasan.kepko.foundation.color.ProvideLocalContentColor
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-@OptIn(ExperimentalKepkoApi::class)
 @Composable
 public fun PreferenceContainer(
     title: String,
@@ -97,7 +95,6 @@ public fun PreferenceContainer(
     }
 }
 
-@OptIn(ExperimentalKepkoApi::class)
 @Composable
 public fun PreferenceContainer(
     title: String,
@@ -169,7 +166,6 @@ public fun PreferenceContainer(
     }
 }
 
-@OptIn(ExperimentalKepkoApi::class)
 @Preview
 @Composable
 private fun PreferenceContainerHorizontalPreview() {
@@ -208,7 +204,6 @@ private fun PreferenceContainerHorizontalPreview() {
     }
 }
 
-@OptIn(ExperimentalKepkoApi::class)
 @Preview
 @Composable
 private fun PreferenceContainerVerticalPreview() {

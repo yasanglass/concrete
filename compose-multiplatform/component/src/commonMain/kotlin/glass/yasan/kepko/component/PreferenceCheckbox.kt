@@ -8,12 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
-import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-@OptIn(ExperimentalKepkoApi::class)
 @Composable
 public fun PreferenceCheckbox(
     title: String,
@@ -42,7 +40,6 @@ public fun PreferenceCheckbox(
     )
 }
 
-@OptIn(ExperimentalKepkoApi::class)
 @Composable
 public fun PreferenceCheckbox(
     title: String,
@@ -72,7 +69,6 @@ public fun PreferenceCheckbox(
     )
 }
 
-@OptIn(ExperimentalKepkoApi::class)
 @Preview
 @Composable
 private fun PreferenceCheckboxPreview() {

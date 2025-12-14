@@ -3,12 +3,10 @@ package glass.yasan.kepko.component
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
-import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.color.contentColorFor
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.resources.stringResource
 
-@ExperimentalKepkoApi
 @Immutable
 public class PreferenceAnnotation(
     public val text: @Composable () -> String,

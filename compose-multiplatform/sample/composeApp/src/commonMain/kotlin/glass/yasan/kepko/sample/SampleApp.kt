@@ -30,13 +30,11 @@ import glass.yasan.kepko.component.PreferenceRadioGroupItem
 import glass.yasan.kepko.component.TextMono
 import glass.yasan.kepko.composeapp.generated.resources.Res
 import glass.yasan.kepko.composeapp.generated.resources.app_title
-import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.border.border
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-@OptIn(ExperimentalKepkoApi::class)
 @Preview
 @Composable
 fun SampleApp() {
@@ -90,7 +88,6 @@ fun SampleApp() {
     }
 }
 
-@OptIn(ExperimentalKepkoApi::class)
 fun LazyListScope.preferenceRadioGroupSample() {
     item {
         val items = listOf(
@@ -137,7 +134,6 @@ private fun ColorPaletteContent() {
     )
 }
 
-@OptIn(ExperimentalKepkoApi::class)
 @Composable
 private fun DarkThemeSwitch(isDarkTheme: MutableState<Boolean>) {
     PreferenceSwitch(
