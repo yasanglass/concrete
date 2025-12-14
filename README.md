@@ -24,6 +24,7 @@ KepkoTheme {
 ## Components
 
 - [Button](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/Button.kt)
+- [ButtonText](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/ButtonText.kt)
 - [Checkbox](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/Checkbox.kt)
 - [HorizontalDivider](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/HorizontalDivider.kt)
 - [Icon](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/Icon.kt)
@@ -32,6 +33,8 @@ KepkoTheme {
 - [PreferenceCheckbox](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/PreferenceCheckbox.kt)
 - [PreferenceContainer](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/PreferenceContainer.kt)
 - [PreferenceRadioButton](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/PreferenceRadioButton.kt)
+- [PreferenceRadioGroup](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/PreferenceRadioGroup.kt)
+- [PreferenceSlider](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/PreferenceSlider.kt)
 - [PreferenceSwitch](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/PreferenceSwitch.kt)
 - [RadioButton](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/RadioButton.kt)
 - [Slider](compose-multiplatform/component/src/commonMain/kotlin/glass/yasan/kepko/component/Slider.kt)
