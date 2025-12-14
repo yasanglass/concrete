@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import glass.yasan.kepko.component.PreferenceAnnotation
 import glass.yasan.kepko.component.PreferenceSwitch
 import glass.yasan.kepko.component.Slider
 import glass.yasan.kepko.component.Text
@@ -27,6 +28,7 @@ import glass.yasan.kepko.component.TextMono
 import glass.yasan.kepko.component.border
 import glass.yasan.kepko.composeapp.generated.resources.Res
 import glass.yasan.kepko.composeapp.generated.resources.app_title
+import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -117,14 +119,15 @@ private fun ColorPaletteContent() {
     )
 }
 
+@OptIn(ExperimentalKepkoApi::class)
 @Composable
 private fun DarkThemeSwitch(isDarkTheme: MutableState<Boolean>) {
     PreferenceSwitch(
         title = "Dark Theme",
-        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit." +
-                " Suspendisse sit amet faucibus diam.",
+        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         checked = isDarkTheme.value,
         onCheckedChange = { isDarkTheme.value = it },
+        annotation = PreferenceAnnotation.experimental,
     )
 }
 

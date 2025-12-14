@@ -16,19 +16,22 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
+@OptIn(ExperimentalKepkoApi::class)
 @Composable
 public fun PreferenceSwitch(
     title: String,
     checked: Boolean,
+    leadingIcon: Painter,
     onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     description: String? = null,
     enabled: Boolean = true,
-    leadingIcon: Painter,
+    annotation: PreferenceAnnotation? = null,
 ) {
     PreferenceSwitch(
         title = title,
@@ -37,6 +40,7 @@ public fun PreferenceSwitch(
         modifier = modifier,
         description = description,
         enabled = enabled,
+        annotation = annotation,
         leadingContent = {
             Icon(
                 painter = leadingIcon,
@@ -46,6 +50,7 @@ public fun PreferenceSwitch(
     )
 }
 
+@OptIn(ExperimentalKepkoApi::class)
 @Composable
 public fun PreferenceSwitch(
     title: String,
@@ -55,17 +60,10 @@ public fun PreferenceSwitch(
     description: String? = null,
     enabled: Boolean = true,
     leadingContent: @Composable () -> Unit = {},
+    annotation: PreferenceAnnotation? = null,
 ) {
-    val titleContentColor = if (enabled) {
-        KepkoTheme.colors.content
-    } else {
-        KepkoTheme.colors.contentDisabled
-    }
-    val descriptionContentColor = if (enabled) {
-        KepkoTheme.colors.contentSubtle
-    } else {
-        KepkoTheme.colors.contentDisabled
-    }
+    val titleContentColor = if (enabled) KepkoTheme.colors.content else KepkoTheme.colors.contentDisabled
+    val descriptionContentColor = if (enabled) KepkoTheme.colors.contentSubtle else KepkoTheme.colors.contentDisabled
 
     Column(
         modifier = modifier
@@ -83,13 +81,12 @@ public fun PreferenceSwitch(
         Row(
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             leadingContent()
             Column(
-                modifier = Modifier
-                    .weight(1f),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+                modifier = Modifier.weight(1f),
             ) {
                 Text(
                     text = title,
@@ -105,6 +102,14 @@ public fun PreferenceSwitch(
                         fontSize = 12.sp,
                     )
                 }
+                annotation?.let {
+                    Pill(
+                        text = it.text(),
+                        containerColor = it.containerColor(),
+                        contentColor = it.contentColor(),
+                        modifier = Modifier.padding(vertical = 4.dp),
+                    )
+                }
             }
             Switch(
                 enabled = enabled,
@@ -115,6 +120,7 @@ public fun PreferenceSwitch(
     }
 }
 
+@OptIn(ExperimentalKepkoApi::class)
 @Preview
 @Composable
 private fun PreferenceSwitchPreview() {
@@ -150,6 +156,7 @@ private fun PreferenceSwitchPreview() {
     }
 }
 
+@OptIn(ExperimentalKepkoApi::class)
 @Preview
 @Composable
 private fun PreferenceSwitchWithIconPreview() {
@@ -176,6 +183,38 @@ private fun PreferenceSwitchWithIconPreview() {
                             modifier = Modifier.padding(horizontal = 16.dp),
                         )
                     }
+                }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalKepkoApi::class)
+@Preview
+@Composable
+private fun PreferenceSwitchWithLabelPreview() {
+    val checked = arrayOf(true, false)
+    val descriptions = arrayOf(
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        null
+    )
+
+    KepkoTheme {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            modifier = Modifier.background(KepkoTheme.colors.midground),
+        ) {
+            descriptions.forEach { description ->
+                checked.forEach { isChecked ->
+                    PreferenceSwitch(
+                        title = if (isChecked) "Checked" else "Unchecked",
+                        description = description,
+                        checked = isChecked,
+                        onCheckedChange = {},
+                        annotation = PreferenceAnnotation.experimental,
+                        leadingIcon = painterResource(Res.drawable.ic_asterisk),
+                        modifier = Modifier.padding(horizontal = 16.dp),
+                    )
                 }
             }
         }

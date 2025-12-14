@@ -1,0 +1,34 @@
+package glass.yasan.kepko.component
+
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
+import androidx.compose.ui.graphics.Color
+import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
+import glass.yasan.kepko.foundation.color.contentColorFor
+import glass.yasan.kepko.foundation.theme.KepkoTheme
+import org.jetbrains.compose.resources.stringResource
+
+@ExperimentalKepkoApi
+@Immutable
+public class PreferenceAnnotation(
+    public val text: @Composable () -> String,
+    public val containerColor: @Composable () -> Color,
+    public val contentColor: @Composable () -> Color = { contentColorFor(containerColor()) },
+) {
+
+    public companion object {
+
+        public val new: PreferenceAnnotation = PreferenceAnnotation(
+            text = { stringResource(Res.string.preference_annotation_new) },
+            containerColor = { KepkoTheme.colors.success },
+        )
+
+        public val experimental: PreferenceAnnotation = PreferenceAnnotation(
+            text = { stringResource(Res.string.preference_annotation_experimental) },
+            containerColor = { KepkoTheme.colors.danger },
+        )
+
+    }
+
+}
+

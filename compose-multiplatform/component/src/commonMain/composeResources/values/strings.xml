@@ -1,0 +1,4 @@
+<resources>
+    <string name="preference_annotation_new">New</string>
+    <string name="preference_annotation_experimental">Experimental</string>
+</resources>
