@@ -98,96 +98,6 @@ public fun ButtonText(
     contentPadding: PaddingValues = ButtonTextDefaults.ContentPadding,
     interactionSource: MutableInteractionSource? = null,
     fillWidth: Boolean = true,
-    leadingIcon: Painter?,
-) {
-    ButtonText(
-        text = text,
-        onClick = onClick,
-        modifier = modifier,
-        contentModifier = contentModifier,
-        containerColor = containerColor,
-        contentColor = contentColor,
-        enabled = enabled,
-        shape = shape,
-        textAlign = textAlign,
-        border = border,
-        elevation = elevation,
-        contentPadding = contentPadding,
-        interactionSource = interactionSource,
-        fillWidth = fillWidth,
-        leadingContent = {
-            leadingIcon?.let { painter ->
-                Icon(
-                    painter = painter,
-                    contentDescription = null,
-                )
-            }
-        },
-        trailingContent = {},
-    )
-}
-
-@Composable
-public fun ButtonText(
-    text: String,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    contentModifier: Modifier = Modifier,
-    containerColor: Color = KepkoTheme.colors.content,
-    contentColor: Color = contentColorFor(containerColor),
-    enabled: Boolean = true,
-    shape: Shape = KepkoTheme.shapes.button,
-    textAlign: TextAlign = TextAlign.Start,
-    border: BorderStroke? = borderStrokeFor(containerColor),
-    elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
-    contentPadding: PaddingValues = ButtonTextDefaults.ContentPadding,
-    interactionSource: MutableInteractionSource? = null,
-    fillWidth: Boolean = true,
-    leadingIcon: ImageVector?,
-) {
-    ButtonText(
-        text = text,
-        onClick = onClick,
-        modifier = modifier,
-        contentModifier = contentModifier,
-        containerColor = containerColor,
-        contentColor = contentColor,
-        enabled = enabled,
-        shape = shape,
-        textAlign = textAlign,
-        border = border,
-        elevation = elevation,
-        contentPadding = contentPadding,
-        interactionSource = interactionSource,
-        fillWidth = fillWidth,
-        leadingContent = {
-            leadingIcon?.let { imageVector ->
-                Icon(
-                    imageVector = imageVector,
-                    contentDescription = null,
-                )
-            }
-        },
-        trailingContent = {},
-    )
-}
-
-@Composable
-public fun ButtonText(
-    text: String,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    contentModifier: Modifier = Modifier,
-    containerColor: Color = KepkoTheme.colors.content,
-    contentColor: Color = contentColorFor(containerColor),
-    enabled: Boolean = true,
-    shape: Shape = KepkoTheme.shapes.button,
-    textAlign: TextAlign = TextAlign.Start,
-    border: BorderStroke? = borderStrokeFor(containerColor),
-    elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
-    contentPadding: PaddingValues = ButtonTextDefaults.ContentPadding,
-    interactionSource: MutableInteractionSource? = null,
-    fillWidth: Boolean = true,
     leadingIcon: ImageVector?,
     trailingIcon: ImageVector?,
 ) {
@@ -229,7 +139,6 @@ public fun ButtonText(
 public fun ButtonText(
     text: String,
     onClick: () -> Unit,
-    leadingContent: @Composable RowScope.() -> Unit,
     modifier: Modifier = Modifier,
     contentModifier: Modifier = Modifier,
     containerColor: Color = KepkoTheme.colors.content,
@@ -242,6 +151,7 @@ public fun ButtonText(
     contentPadding: PaddingValues = ButtonTextDefaults.ContentPadding,
     interactionSource: MutableInteractionSource? = null,
     fillWidth: Boolean = true,
+    leadingContent: @Composable RowScope.() -> Unit = {},
     trailingContent: @Composable RowScope.() -> Unit = {},
 ) {
     Button(
@@ -279,7 +189,6 @@ public fun ButtonText(
         interactionSource = interactionSource
     )
 }
-
 
 
 @Preview
