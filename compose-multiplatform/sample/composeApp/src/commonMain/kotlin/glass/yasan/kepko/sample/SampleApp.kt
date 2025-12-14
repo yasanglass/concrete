@@ -1,7 +1,6 @@
 package glass.yasan.kepko.sample
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -21,9 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import glass.yasan.kepko.component.HorizontalDivider
+import glass.yasan.kepko.component.PreferenceSwitch
 import glass.yasan.kepko.component.Slider
-import glass.yasan.kepko.component.Switch
 import glass.yasan.kepko.component.Text
 import glass.yasan.kepko.component.TextMono
 import glass.yasan.kepko.component.border
@@ -46,8 +44,8 @@ fun SampleApp() {
     ) {
 
         SystemBarColorsEffect(
-            statusBarColor = KepkoTheme.colors.foreground,
-            navigationBarColor = KepkoTheme.colors.foreground,
+            statusBarColor = KepkoTheme.colors.midground,
+            navigationBarColor = KepkoTheme.colors.midground,
             isDark = isDarkTheme.value,
         )
 
@@ -55,7 +53,7 @@ fun SampleApp() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .background(KepkoTheme.colors.foreground)
+                .background(KepkoTheme.colors.midground)
                 .safeContentPadding()
                 .fillMaxSize()
                 .padding(16.dp),
@@ -71,7 +69,6 @@ fun SampleApp() {
             item { ColorPaletteContent() }
             item { Spacer(Modifier.height(12.dp)) }
             item { DarkThemeSwitch(isDarkTheme) }
-            item { HorizontalDivider() }
             item { Spacer(Modifier.height(12.dp)) }
             item {
                 Row(
@@ -122,23 +119,13 @@ private fun ColorPaletteContent() {
 
 @Composable
 private fun DarkThemeSwitch(isDarkTheme: MutableState<Boolean>) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable {
-                isDarkTheme.value = !isDarkTheme.value
-            }
-    ) {
-        Text(
-            text = "Dark Theme",
-        )
-        Spacer(Modifier.weight(1f))
-        Switch(
-            checked = isDarkTheme.value,
-            onCheckedChange = { isDarkTheme.value = it },
-        )
-    }
+    PreferenceSwitch(
+        title = "Dark Theme",
+        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit." +
+                " Suspendisse sit amet faucibus diam.",
+        checked = isDarkTheme.value,
+        onCheckedChange = { isDarkTheme.value = it },
+    )
 }
 
 @Composable
