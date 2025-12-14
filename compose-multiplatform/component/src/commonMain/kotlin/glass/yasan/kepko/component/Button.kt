@@ -34,6 +34,7 @@ public fun Button(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     contentModifier: Modifier = Modifier,
+    contentTextModifier: Modifier = Modifier,
     containerColor: Color = KepkoTheme.colors.content,
     contentColor: Color = contentColorFor(containerColor),
     enabled: Boolean = true,
@@ -58,7 +59,7 @@ public fun Button(
                     text = text.uppercase(),
                     textAlign = textAlign,
                     maxLines = 1,
-                    modifier = Modifier.weight(1f),
+                    modifier = contentTextModifier,
                 )
                 trailingContent()
             }
