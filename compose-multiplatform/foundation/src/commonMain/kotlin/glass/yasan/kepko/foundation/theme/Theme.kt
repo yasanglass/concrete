@@ -51,6 +51,8 @@ public object KepkoTheme {
 
 @Composable
 public fun Colors.toMaterial3ColorScheme(): ColorScheme = colorScheme.copy(
+    error = danger,
+    onError = onDanger,
     background = midground,
     inverseOnSurface = foreground,
     inverseSurface = inverseForeground,
