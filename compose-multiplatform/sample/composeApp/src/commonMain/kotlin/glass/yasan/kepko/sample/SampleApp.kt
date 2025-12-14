@@ -11,9 +11,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,8 +23,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import glass.yasan.kepko.component.PreferenceAnnotation
+import glass.yasan.kepko.component.PreferenceRadioGroup
 import glass.yasan.kepko.component.PreferenceSlider
 import glass.yasan.kepko.component.PreferenceSwitch
+import glass.yasan.kepko.component.PreferenceRadioGroupItem
 import glass.yasan.kepko.component.TextMono
 import glass.yasan.kepko.composeapp.generated.resources.Res
 import glass.yasan.kepko.composeapp.generated.resources.app_title
@@ -71,7 +75,6 @@ fun SampleApp() {
             item { ColorPaletteContent() }
             item { Spacer(Modifier.height(12.dp)) }
             item { DarkThemeSwitch(isDarkTheme) }
-            item { Spacer(Modifier.height(12.dp)) }
             item {
                 PreferenceSlider(
                     title = "Slider",
@@ -82,7 +85,29 @@ fun SampleApp() {
                     annotation = PreferenceAnnotation.new,
                 )
             }
+            preferenceRadioGroupSample()
         }
+    }
+}
+
+@OptIn(ExperimentalKepkoApi::class)
+fun LazyListScope.preferenceRadioGroupSample() {
+    item {
+        val items = listOf(
+            PreferenceRadioGroupItem { "Item 1" },
+            PreferenceRadioGroupItem { "Item 2" },
+            PreferenceRadioGroupItem { "Item 3" },
+        )
+        val selected = remember { mutableStateOf(items.first()) }
+
+        PreferenceRadioGroup(
+            title = "Preference Radio Group",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            selected = selected.value,
+            items = items,
+            onSelect = { selected.value = it },
+            annotation = PreferenceAnnotation.new,
+        )
     }
 }
 
