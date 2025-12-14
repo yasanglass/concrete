@@ -22,7 +22,7 @@ detekt {
 
 allprojects {
     group = "glass.yasan.kepko"
-    version = "0.12.0"
+    version = "0.13.0"
 }
 
 fun Project.configureDetekt() {
