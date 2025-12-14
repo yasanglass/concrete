@@ -34,7 +34,7 @@ public fun Button(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    contentRowModifier: Modifier = Modifier,
+    contentRowModifier: Modifier = Modifier.padding(8.dp),
     contentTextModifier: Modifier = Modifier,
     containerColor: Color = KepkoTheme.colors.content,
     contentColor: Color = contentColorFor(containerColor),
