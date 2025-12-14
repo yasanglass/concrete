@@ -6,6 +6,8 @@ updates:
     interval: daily
     time: "16:30"
     timezone: "Europe/Prague"
+  cooldown:
+    default-days: 14
   labels: 
     - 'compose multiplatform'
     - 'dependencies'
@@ -26,6 +28,8 @@ updates:
     interval: daily
     time: "16:30"
     timezone: "Europe/Prague"
+  cooldown:
+    default-days: 14
   labels: 
     - 'github actions'
     - 'dependencies'
