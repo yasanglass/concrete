@@ -89,7 +89,6 @@ fun SampleApp() {
                 title()
                 colorPalette()
                 darkThemeSwitch(isDarkTheme)
-                item { HorizontalDivider() }
                 examplePreferenceSlider()
                 examplePreferenceCheckbox()
                 examplePreferenceSwitch()
@@ -156,7 +155,33 @@ private fun LazyListScope.colorPalette() {
 
 private fun LazyListScope.examplePreferenceRadioButton() {
     item {
+        HorizontalDivider()
+    }
+    item {
+        val radioButtonValue = rememberSaveable { mutableStateOf(true) }
+
+        PreferenceRadioButton(
+            title = "PreferenceRadioButton",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            selected = radioButtonValue.value,
+            onClick = { radioButtonValue.value = radioButtonValue.value.not() },
+            leadingIcon = painterResource(Res.drawable.ic_heart_smile),
+            annotation = PreferenceAnnotation.new,
+        )
+    }
+    item {
         val radioButtonValue = rememberSaveable { mutableStateOf(false) }
+
+        PreferenceRadioButton(
+            title = "PreferenceRadioButton",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            selected = radioButtonValue.value,
+            onClick = { radioButtonValue.value = radioButtonValue.value.not() },
+            leadingIcon = painterResource(Res.drawable.ic_family_star),
+        )
+    }
+    item {
+        val radioButtonValue = rememberSaveable { mutableStateOf(true) }
 
         PreferenceRadioButton(
             title = "PreferenceRadioButton",
@@ -165,9 +190,33 @@ private fun LazyListScope.examplePreferenceRadioButton() {
             onClick = { radioButtonValue.value = radioButtonValue.value.not() },
         )
     }
+    item {
+        val radioButtonValue = rememberSaveable { mutableStateOf(false) }
+
+        PreferenceRadioButton(
+            title = "PreferenceRadioButton",
+            selected = radioButtonValue.value,
+            onClick = { radioButtonValue.value = radioButtonValue.value.not() },
+        )
+    }
 }
 
 private fun LazyListScope.examplePreferenceSwitch() {
+    item {
+        HorizontalDivider()
+    }
+    item {
+        val switchValue = rememberSaveable { mutableStateOf(true) }
+
+        PreferenceSwitch(
+            title = "PreferenceSwitch",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            checked = switchValue.value,
+            onCheckedChange = { switchValue.value = it },
+            annotation = PreferenceAnnotation.preview,
+            leadingIcon = painterResource(Res.drawable.ic_bolt)
+        )
+    }
     item {
         val switchValue = rememberSaveable { mutableStateOf(false) }
 
@@ -176,13 +225,35 @@ private fun LazyListScope.examplePreferenceSwitch() {
             description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             checked = switchValue.value,
             onCheckedChange = { switchValue.value = it },
-            annotation = PreferenceAnnotation.new,
+            annotation = PreferenceAnnotation.alpha,
+        )
+    }
+    item {
+        val switchValue = rememberSaveable { mutableStateOf(true) }
+
+        PreferenceSwitch(
+            title = "PreferenceSwitch",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            checked = switchValue.value,
+            onCheckedChange = { switchValue.value = it },
+        )
+    }
+    item {
+        val switchValue = rememberSaveable { mutableStateOf(false) }
+
+        PreferenceSwitch(
+            title = "PreferenceSwitch",
+            checked = switchValue.value,
+            onCheckedChange = { switchValue.value = it },
         )
     }
 }
 
 
 private fun LazyListScope.examplePreferenceCheckbox() {
+    item {
+        HorizontalDivider()
+    }
     item {
         val checkboxValue = rememberSaveable { mutableStateOf(false) }
 
@@ -191,12 +262,44 @@ private fun LazyListScope.examplePreferenceCheckbox() {
             description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             checked = checkboxValue.value,
             onCheckedChange = { checkboxValue.value = it },
-            annotation = PreferenceAnnotation.experimental,
+            annotation = PreferenceAnnotation.beta,
+        )
+    }
+    item {
+        val checkboxValue = rememberSaveable { mutableStateOf(false) }
+
+        PreferenceCheckbox(
+            title = "PreferenceCheckbox",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            checked = checkboxValue.value,
+            onCheckedChange = { checkboxValue.value = it },
+        )
+    }
+    item {
+        val checkboxValue = rememberSaveable { mutableStateOf(true) }
+
+        PreferenceCheckbox(
+            title = "PreferenceCheckbox",
+            checked = checkboxValue.value,
+            onCheckedChange = { checkboxValue.value = it },
         )
     }
 }
 
 private fun LazyListScope.examplePreferenceSlider() {
+    item { HorizontalDivider() }
+    item {
+        val sliderValue = rememberSaveable { mutableStateOf(0.7f) }
+
+        PreferenceSlider(
+            title = "PreferenceSlider",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            value = sliderValue.value,
+            onValueChange = { sliderValue.value = it },
+            steps = 9,
+            annotation = PreferenceAnnotation.legacy,
+        )
+    }
     item {
         val sliderValue = rememberSaveable { mutableStateOf(0.5f) }
 
@@ -205,13 +308,38 @@ private fun LazyListScope.examplePreferenceSlider() {
             description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             value = sliderValue.value,
             onValueChange = { sliderValue.value = it },
-            steps = 9,
-            annotation = PreferenceAnnotation.experimental,
+            steps = 5,
+        )
+    }
+    item {
+        val sliderValue = rememberSaveable { mutableStateOf(0.3f) }
+
+        PreferenceSlider(
+            title = "PreferenceSlider",
+            value = sliderValue.value,
+            onValueChange = { sliderValue.value = it },
+            steps = 3,
         )
     }
 }
 
 private fun LazyListScope.examplePreferenceRadioGroup() {
+    item { HorizontalDivider() }
+    item {
+        val items = listOf(
+            PreferenceRadioGroupItem("item1") { "Item 1" },
+        )
+        val selected = remember { mutableStateOf(items.first()) }
+
+        PreferenceRadioGroup(
+            title = "PreferenceRadioGroup",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            selected = selected.value,
+            items = items,
+            onSelect = { selected.value = it },
+            annotation = PreferenceAnnotation.alpha,
+        )
+    }
     item {
         val items = listOf(
             PreferenceRadioGroupItem("item1") { "Item 1" },
@@ -226,13 +354,27 @@ private fun LazyListScope.examplePreferenceRadioGroup() {
             selected = selected.value,
             items = items,
             onSelect = { selected.value = it },
-            annotation = PreferenceAnnotation.new,
+        )
+    }
+    item {
+        val items = listOf(
+            PreferenceRadioGroupItem("item1") { "Item 1" },
+            PreferenceRadioGroupItem("item2") { "Item 2" },
+        )
+        val selected = remember { mutableStateOf(items.first()) }
+
+        PreferenceRadioGroup(
+            title = "PreferenceRadioGroup",
+            selected = selected.value,
+            items = items,
+            onSelect = { selected.value = it },
         )
     }
 }
 
 @Suppress("LongMethod")
 private fun LazyListScope.exampleButtonText() {
+    item { HorizontalDivider() }
     item {
         ButtonText(
             text = "ButtonText",
@@ -317,6 +459,7 @@ private fun LazyListScope.exampleButtonText() {
 }
 
 private fun LazyListScope.exampleTextPill() {
+    item { HorizontalDivider() }
     item {
         KepkoTheme.colors.getSemanticColors().forEach { color ->
             TextPill(
