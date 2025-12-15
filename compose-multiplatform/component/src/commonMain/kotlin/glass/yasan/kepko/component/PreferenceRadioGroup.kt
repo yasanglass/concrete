@@ -14,8 +14,35 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
+
+@ExperimentalKepkoApi
+@Composable
+public fun PreferenceRadioGroup(
+    title: String,
+    selectedId: String,
+    items: List<PreferenceRadioGroupItem>,
+    onSelect: (PreferenceRadioGroupItem) -> Unit,
+    modifier: Modifier = Modifier,
+    description: String? = null,
+    enabled: Boolean = true,
+    annotation: PreferenceAnnotation? = null,
+    content: @Composable () -> Unit = {},
+) {
+    PreferenceRadioGroup(
+        title = title,
+        selected = items.first { it.id == selectedId },
+        items = items,
+        onSelect = onSelect,
+        modifier = modifier,
+        description = description,
+        enabled = enabled,
+        annotation = annotation,
+        content = content,
+    )
+}
 
 @Composable
 public fun PreferenceRadioGroup(
