@@ -22,7 +22,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 public fun PreferenceRadioGroup(
     title: String,
-    selectedId: String,
+    selectedId: String?,
     items: List<PreferenceRadioGroupItem>,
     onSelectId: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -33,7 +33,7 @@ public fun PreferenceRadioGroup(
 ) {
     PreferenceRadioGroup(
         title = title,
-        selected = items.first { it.id == selectedId },
+        selected = items.firstOrNull { it.id == selectedId },
         items = items,
         onSelect = { onSelectId(it.id) },
         modifier = modifier,
@@ -47,7 +47,7 @@ public fun PreferenceRadioGroup(
 @Composable
 public fun PreferenceRadioGroup(
     title: String,
-    selected: PreferenceRadioGroupItem,
+    selected: PreferenceRadioGroupItem?,
     items: List<PreferenceRadioGroupItem>,
     onSelect: (PreferenceRadioGroupItem) -> Unit,
     modifier: Modifier = Modifier,
