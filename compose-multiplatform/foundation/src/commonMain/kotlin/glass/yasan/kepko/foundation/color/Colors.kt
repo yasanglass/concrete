@@ -12,36 +12,35 @@ import glass.yasan.kepko.foundation.theme.ThemeStyle
 public class Colors internal constructor(
     style: ThemeStyle,
 ) {
-    private val isDark: Boolean = style != ThemeStyle.LIGHT
     private val inverseStyle: ThemeStyle = if (style == ThemeStyle.LIGHT) ThemeStyle.DARK else ThemeStyle.LIGHT
 
     @ExperimentalKepkoApi
-    public val success: Color = ColorTokens.success
+    public val success: Color = ColorTokens.success(style)
     @ExperimentalKepkoApi
-    public val onSuccess: Color = ColorTokens.onSuccess
+    public val onSuccess: Color = ColorTokens.onSuccess(style)
 
     @ExperimentalKepkoApi
-    public val information: Color = ColorTokens.information
+    public val information: Color = ColorTokens.information(style)
     @ExperimentalKepkoApi
-    public val onInformation: Color = ColorTokens.onInformation
+    public val onInformation: Color = ColorTokens.onInformation(style)
 
     @ExperimentalKepkoApi
-    public val caution: Color = ColorTokens.caution
+    public val caution: Color = ColorTokens.caution(style)
     @ExperimentalKepkoApi
-    public val onCaution: Color = ColorTokens.onCaution
+    public val onCaution: Color = ColorTokens.onCaution(style)
 
     @ExperimentalKepkoApi
-    public val danger: Color = ColorTokens.danger
+    public val danger: Color = ColorTokens.danger(style)
     @ExperimentalKepkoApi
-    public val onDanger: Color = ColorTokens.onDanger
+    public val onDanger: Color = ColorTokens.onDanger(style)
 
-    public val content: Color = ColorTokens.content(isDark)
-    public val contentSubtle: Color = ColorTokens.contentSubtle(isDark)
-    public val contentDisabled: Color = ColorTokens.contentDisabled(isDark)
+    public val content: Color = ColorTokens.content(style)
+    public val contentSubtle: Color = ColorTokens.contentSubtle(style)
+    public val contentDisabled: Color = ColorTokens.contentDisabled(style)
 
-    public val inverseContent: Color = ColorTokens.content(!isDark)
-    public val inverseContentSubtle: Color = ColorTokens.contentSubtle(!isDark)
-    public val inverseContentDisabled: Color = ColorTokens.contentDisabled(!isDark)
+    public val inverseContent: Color = ColorTokens.content(inverseStyle)
+    public val inverseContentSubtle: Color = ColorTokens.contentSubtle(inverseStyle)
+    public val inverseContentDisabled: Color = ColorTokens.contentDisabled(inverseStyle)
 
     public val foreground: Color = ColorTokens.foreground(style)
     public val midground: Color = ColorTokens.midground(style)

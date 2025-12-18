@@ -2,9 +2,12 @@ package glass.yasan.kepko.foundation.theme
 
 import androidx.compose.runtime.Composable
 import glass.yasan.kepko.foundation.Res
+import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.theme_style_dark
 import glass.yasan.kepko.foundation.theme_style_dark_amoled
+import glass.yasan.kepko.foundation.theme_style_dark_solarized
 import glass.yasan.kepko.foundation.theme_style_light
+import glass.yasan.kepko.foundation.theme_style_light_solarized
 import org.jetbrains.compose.resources.stringResource
 
 public enum class ThemeStyle(
@@ -26,6 +29,18 @@ public enum class ThemeStyle(
         id = "dark-amoled",
         isDark = true,
         title = { stringResource(Res.string.theme_style_dark_amoled) }
+    ),
+    @ExperimentalKepkoApi
+    LIGHT_SOLARIZED(
+        id = "light-solarized",
+        isDark = false,
+        title = { stringResource(Res.string.theme_style_light_solarized) }
+    ),
+    @ExperimentalKepkoApi
+    DARK_SOLARIZED(
+        id = "dark-solarized",
+        isDark = true,
+        title = { stringResource(Res.string.theme_style_dark_solarized) }
     ),
     ;
 
