@@ -2,6 +2,6 @@
     <string name="theme_style_light">Light</string>
     <string name="theme_style_dark">Dark</string>
     <string name="theme_style_dark_amoled">Dark AMOLED</string>
-    <string name="theme_style_light_solarized">Light Solarized</string>
-    <string name="theme_style_dark_solarized">Dark Solarized</string>
+    <string name="theme_style_light_solarized">Solarized Light</string>
+    <string name="theme_style_dark_solarized">Solarized Dark</string>
 </resources>
