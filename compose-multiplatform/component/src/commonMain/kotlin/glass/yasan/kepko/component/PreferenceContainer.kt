@@ -42,7 +42,7 @@ public fun PreferenceContainer(
 
     Column(
         modifier = modifier
-            .border(color = KepkoTheme.colors.background, shape)
+            .border(color = KepkoTheme.colors.outline, shape)
             .clip(shape)
             .clickable(
                 interactionSource = interactionSource,
@@ -113,7 +113,7 @@ public fun PreferenceContainer(
 
     Column(
         modifier = modifier
-            .border(color = KepkoTheme.colors.background, shape)
+            .border(color = KepkoTheme.colors.outline, shape)
             .clip(shape)
             .clickable(
                 interactionSource = interactionSource,

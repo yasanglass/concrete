@@ -27,6 +27,7 @@ public fun contentColorFor(
     KepkoTheme.colors.foreground -> KepkoTheme.colors.content
     KepkoTheme.colors.midground -> KepkoTheme.colors.content
     KepkoTheme.colors.background -> KepkoTheme.colors.content
+    KepkoTheme.colors.outline -> KepkoTheme.colors.content
     // Semantic
     KepkoTheme.colors.success -> KepkoTheme.colors.onSuccess
     KepkoTheme.colors.information -> KepkoTheme.colors.onInformation

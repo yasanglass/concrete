@@ -10,7 +10,7 @@ import androidx.compose.material3.VerticalDivider as Material3VerticalDivider
 @Composable
 public fun VerticalDivider(
     modifier: Modifier = Modifier,
-    color: Color = KepkoTheme.colors.background,
+    color: Color = KepkoTheme.colors.outline,
     thickness: Dp = KepkoTheme.dimensions.borderThickness,
 ) {
     Material3VerticalDivider(

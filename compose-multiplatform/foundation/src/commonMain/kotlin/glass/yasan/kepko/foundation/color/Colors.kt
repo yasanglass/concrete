@@ -43,6 +43,8 @@ public class Colors internal constructor(
     public val midground: Color = ColorTokens.midground(isDark),
     public val background: Color = ColorTokens.background(isDark),
 
+    public val outline: Color = ColorTokens.outline(isDark),
+
     public val inverseForeground: Color = ColorTokens.foreground(!isDark),
     public val inverseMidground: Color = ColorTokens.midground(!isDark),
     public val inverseBackground: Color = ColorTokens.background(!isDark),

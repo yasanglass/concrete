@@ -10,7 +10,7 @@ import androidx.compose.material3.HorizontalDivider as Material3HorizontalDivide
 @Composable
 public fun HorizontalDivider(
     modifier: Modifier = Modifier,
-    color: Color = KepkoTheme.colors.background,
+    color: Color = KepkoTheme.colors.outline,
     thickness: Dp = KepkoTheme.dimensions.borderThickness,
 ) {
     Material3HorizontalDivider(

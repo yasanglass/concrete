@@ -36,6 +36,9 @@ public object ColorTokens {
     internal fun foreground(isDark: Boolean): Color = if (isDark) foregroundDark else foregroundLight
     internal fun midground(isDark: Boolean): Color = if (isDark) midgroundDark else midgroundLight
     internal fun background(isDark: Boolean): Color = if (isDark) backgroundDark else backgroundLight
+
+    internal fun outline(isDark: Boolean): Color = if (isDark) backgroundDark else backgroundLight
+
     internal fun content(isDark: Boolean): Color = if (isDark) contentDark else contentLight
     internal fun contentSubtle(isDark: Boolean): Color = if (isDark) contentSubtleDark else contentSubtleLight
     internal fun contentDisabled(isDark: Boolean): Color = if (isDark) contentDisabledDark else contentDisabledLight

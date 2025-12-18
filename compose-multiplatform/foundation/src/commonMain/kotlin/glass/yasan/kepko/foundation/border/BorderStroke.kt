@@ -9,7 +9,7 @@ import androidx.compose.foundation.BorderStroke as MaterialBorderStroke
 
 @Composable
 public fun borderStroke(
-    color: Color = KepkoTheme.colors.background,
+    color: Color = KepkoTheme.colors.outline,
     thickness: Dp = KepkoTheme.dimensions.borderThickness,
 ): MaterialBorderStroke =
     MaterialBorderStroke(

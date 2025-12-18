@@ -13,7 +13,7 @@ import androidx.compose.foundation.border as ComposeFoundationBorder
 
 @Composable
 public fun Modifier.border(
-    color: Color = KepkoTheme.colors.background,
+    color: Color = KepkoTheme.colors.outline,
     shape: Shape = RectangleShape,
     width: Dp = KepkoTheme.dimensions.borderThickness,
 ): Modifier =
