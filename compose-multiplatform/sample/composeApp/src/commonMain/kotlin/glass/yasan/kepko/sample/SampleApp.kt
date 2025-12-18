@@ -49,9 +49,11 @@ import glass.yasan.kepko.composeapp.generated.resources.ic_eco
 import glass.yasan.kepko.composeapp.generated.resources.ic_family_star
 import glass.yasan.kepko.composeapp.generated.resources.ic_heart_smile
 import glass.yasan.kepko.composeapp.generated.resources.ic_new_releases
+import glass.yasan.kepko.foundation.border.border
 import glass.yasan.kepko.foundation.color.contentColorFor
 import glass.yasan.kepko.foundation.color.getSemanticColors
 import glass.yasan.kepko.foundation.theme.KepkoTheme
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -60,17 +62,18 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 fun SampleApp() {
     val isSystemInDarkTheme = isSystemInDarkTheme()
-
-    val isDarkTheme = rememberSaveable { mutableStateOf(isSystemInDarkTheme) }
+    val style = rememberSaveable {
+        mutableStateOf(ThemeStyle.fromDarkMode(isDark = isSystemInDarkTheme))
+    }
 
     KepkoTheme(
-        isDark = isDarkTheme.value,
+        style = style.value,
     ) {
 
         SystemBarColorsEffect(
             statusBarColor = KepkoTheme.colors.midground,
             navigationBarColor = KepkoTheme.colors.midground,
-            isDark = isDarkTheme.value,
+            isDark = style.value.isDark,
         )
 
         Box(
@@ -88,7 +91,7 @@ fun SampleApp() {
             ) {
                 title()
                 colorPalette()
-                darkThemeSwitch(isDarkTheme)
+                darkThemeSwitch(style)
                 examplePreferenceSlider()
                 examplePreferenceCheckbox()
                 examplePreferenceSwitch()
@@ -471,12 +474,13 @@ private fun LazyListScope.exampleTextPill() {
     }
 }
 
-private fun LazyListScope.darkThemeSwitch(isDarkTheme: MutableState<Boolean>) {
+private fun LazyListScope.darkThemeSwitch(style: MutableState<ThemeStyle>) {
     item {
-        PreferenceSwitch(
-            title = "Dark Theme",
-            checked = isDarkTheme.value,
-            onCheckedChange = { isDarkTheme.value = it },
+        PreferenceRadioGroup(
+            title = "Style",
+            items = ThemeStyle.entries.map { PreferenceRadioGroupItem(it.id) { it.name } },
+            selectedId = style.value.id,
+            onSelectId = { style.value = ThemeStyle.fromId(it) ?: ThemeStyle.LIGHT },
         )
     }
 }
@@ -490,6 +494,7 @@ private fun RowScope.ColorBox(
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
+            .border(shape = CircleShape)
             .clip(CircleShape)
             .weight(1f)
             .height(128.dp)

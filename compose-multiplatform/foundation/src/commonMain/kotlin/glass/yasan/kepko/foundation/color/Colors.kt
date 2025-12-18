@@ -6,54 +6,58 @@ import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 
 @Immutable
 public class Colors internal constructor(
-    isDark: Boolean,
+    style: ThemeStyle,
+) {
+    private val isDark: Boolean = style != ThemeStyle.LIGHT
+    private val inverseStyle: ThemeStyle = if (style == ThemeStyle.LIGHT) ThemeStyle.DARK else ThemeStyle.LIGHT
 
     @ExperimentalKepkoApi
-    public val success: Color = ColorTokens.success,
+    public val success: Color = ColorTokens.success
     @ExperimentalKepkoApi
-    public val onSuccess: Color = ColorTokens.onSuccess,
-
-    @ExperimentalKepkoApi
-    public val information: Color = ColorTokens.information,
-    @ExperimentalKepkoApi
-    public val onInformation: Color = ColorTokens.onInformation,
+    public val onSuccess: Color = ColorTokens.onSuccess
 
     @ExperimentalKepkoApi
-    public val caution: Color = ColorTokens.caution,
+    public val information: Color = ColorTokens.information
     @ExperimentalKepkoApi
-    public val onCaution: Color = ColorTokens.onCaution,
+    public val onInformation: Color = ColorTokens.onInformation
 
     @ExperimentalKepkoApi
-    public val danger: Color = ColorTokens.danger,
+    public val caution: Color = ColorTokens.caution
     @ExperimentalKepkoApi
-    public val onDanger: Color = ColorTokens.onDanger,
+    public val onCaution: Color = ColorTokens.onCaution
 
-    public val content: Color = ColorTokens.content(isDark),
-    public val contentSubtle: Color = ColorTokens.contentSubtle(isDark),
-    public val contentDisabled: Color = ColorTokens.contentDisabled(isDark),
+    @ExperimentalKepkoApi
+    public val danger: Color = ColorTokens.danger
+    @ExperimentalKepkoApi
+    public val onDanger: Color = ColorTokens.onDanger
 
-    public val inverseContent: Color = ColorTokens.content(!isDark),
-    public val inverseContentSubtle: Color = ColorTokens.contentSubtle(!isDark),
-    public val inverseContentDisabled: Color = ColorTokens.contentDisabled(!isDark),
+    public val content: Color = ColorTokens.content(isDark)
+    public val contentSubtle: Color = ColorTokens.contentSubtle(isDark)
+    public val contentDisabled: Color = ColorTokens.contentDisabled(isDark)
 
-    public val foreground: Color = ColorTokens.foreground(isDark),
-    public val midground: Color = ColorTokens.midground(isDark),
-    public val background: Color = ColorTokens.background(isDark),
+    public val inverseContent: Color = ColorTokens.content(!isDark)
+    public val inverseContentSubtle: Color = ColorTokens.contentSubtle(!isDark)
+    public val inverseContentDisabled: Color = ColorTokens.contentDisabled(!isDark)
 
-    public val outline: Color = ColorTokens.outline(isDark),
+    public val foreground: Color = ColorTokens.foreground(style)
+    public val midground: Color = ColorTokens.midground(style)
+    public val background: Color = ColorTokens.background(style)
 
-    public val inverseForeground: Color = ColorTokens.foreground(!isDark),
-    public val inverseMidground: Color = ColorTokens.midground(!isDark),
-    public val inverseBackground: Color = ColorTokens.background(!isDark),
-)
+    public val outline: Color = ColorTokens.outline(style)
+
+    public val inverseForeground: Color = ColorTokens.foreground(inverseStyle)
+    public val inverseMidground: Color = ColorTokens.midground(inverseStyle)
+    public val inverseBackground: Color = ColorTokens.background(inverseStyle)
+}
 
 internal val LocalColors: ProvidableCompositionLocal<Colors> =
     compositionLocalOf {
         Colors(
-            isDark = false,
+            style = ThemeStyle.LIGHT,
         )
     }
 

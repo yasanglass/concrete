@@ -18,8 +18,8 @@ import glass.yasan.kepko.foundation.typography.rubikTypography
 
 @Composable
 public fun KepkoTheme(
-    style: ThemeStyle = if (isSystemInDarkTheme()) ThemeStyle.DARK else ThemeStyle.LIGHT,
-    colors: Colors = Colors(isDark = style == ThemeStyle.DARK),
+    style: ThemeStyle,
+    colors: Colors = Colors(style = style),
     dimensions: Dimensions = KepkoTheme.dimensions,
     shapes: Shapes = KepkoTheme.shapes,
     material3ColorScheme: ColorScheme = colors.toMaterial3ColorScheme(),
@@ -41,8 +41,8 @@ public fun KepkoTheme(
 
 @Composable
 public fun KepkoTheme(
-    isDark: Boolean,
-    colors: Colors = Colors(isDark = isDark),
+    isDark: Boolean = isSystemInDarkTheme(),
+    colors: Colors = Colors(style = if (isDark) ThemeStyle.DARK else ThemeStyle.LIGHT),
     dimensions: Dimensions = KepkoTheme.dimensions,
     shapes: Shapes = KepkoTheme.shapes,
     material3ColorScheme: ColorScheme = colors.toMaterial3ColorScheme(),
