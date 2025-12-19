@@ -67,42 +67,42 @@ public object ColorTokens {
 
     internal fun success(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT, ThemeStyle.DARK, ThemeStyle.DARK_AMOLED -> successStandard
-        ThemeStyle.LIGHT_SOLARIZED, ThemeStyle.DARK_SOLARIZED -> successSolarized
+        ThemeStyle.SOLARIZED_LIGHT, ThemeStyle.SOLARIZED_DARK -> successSolarized
     }
 
     internal fun onSuccess(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT, ThemeStyle.DARK, ThemeStyle.DARK_AMOLED -> onSuccessStandard
-        ThemeStyle.LIGHT_SOLARIZED, ThemeStyle.DARK_SOLARIZED -> onSuccessSolarized
+        ThemeStyle.SOLARIZED_LIGHT, ThemeStyle.SOLARIZED_DARK -> onSuccessSolarized
     }
 
     internal fun information(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT, ThemeStyle.DARK, ThemeStyle.DARK_AMOLED -> informationStandard
-        ThemeStyle.LIGHT_SOLARIZED, ThemeStyle.DARK_SOLARIZED -> informationSolarized
+        ThemeStyle.SOLARIZED_LIGHT, ThemeStyle.SOLARIZED_DARK -> informationSolarized
     }
 
     internal fun onInformation(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT, ThemeStyle.DARK, ThemeStyle.DARK_AMOLED -> onInformationStandard
-        ThemeStyle.LIGHT_SOLARIZED, ThemeStyle.DARK_SOLARIZED -> onInformationSolarized
+        ThemeStyle.SOLARIZED_LIGHT, ThemeStyle.SOLARIZED_DARK -> onInformationSolarized
     }
 
     internal fun caution(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT, ThemeStyle.DARK, ThemeStyle.DARK_AMOLED -> cautionStandard
-        ThemeStyle.LIGHT_SOLARIZED, ThemeStyle.DARK_SOLARIZED -> cautionSolarized
+        ThemeStyle.SOLARIZED_LIGHT, ThemeStyle.SOLARIZED_DARK -> cautionSolarized
     }
 
     internal fun onCaution(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT, ThemeStyle.DARK, ThemeStyle.DARK_AMOLED -> onCautionStandard
-        ThemeStyle.LIGHT_SOLARIZED, ThemeStyle.DARK_SOLARIZED -> onCautionSolarized
+        ThemeStyle.SOLARIZED_LIGHT, ThemeStyle.SOLARIZED_DARK -> onCautionSolarized
     }
 
     internal fun danger(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT, ThemeStyle.DARK, ThemeStyle.DARK_AMOLED -> dangerStandard
-        ThemeStyle.LIGHT_SOLARIZED, ThemeStyle.DARK_SOLARIZED -> dangerSolarized
+        ThemeStyle.SOLARIZED_LIGHT, ThemeStyle.SOLARIZED_DARK -> dangerSolarized
     }
 
     internal fun onDanger(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT, ThemeStyle.DARK, ThemeStyle.DARK_AMOLED -> onDangerStandard
-        ThemeStyle.LIGHT_SOLARIZED, ThemeStyle.DARK_SOLARIZED -> onDangerSolarized
+        ThemeStyle.SOLARIZED_LIGHT, ThemeStyle.SOLARIZED_DARK -> onDangerSolarized
     }
 
 
@@ -110,53 +110,53 @@ public object ColorTokens {
         ThemeStyle.LIGHT -> foregroundLight
         ThemeStyle.DARK -> foregroundDark
         ThemeStyle.DARK_AMOLED -> foregroundDarkAmoled
-        ThemeStyle.LIGHT_SOLARIZED -> foregroundLightSolarized
-        ThemeStyle.DARK_SOLARIZED -> foregroundDarkSolarized
+        ThemeStyle.SOLARIZED_LIGHT -> foregroundLightSolarized
+        ThemeStyle.SOLARIZED_DARK -> foregroundDarkSolarized
     }
 
     internal fun midground(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT -> midgroundLight
         ThemeStyle.DARK -> midgroundDark
         ThemeStyle.DARK_AMOLED -> midgroundDarkAmoled
-        ThemeStyle.LIGHT_SOLARIZED -> midgroundLightSolarized
-        ThemeStyle.DARK_SOLARIZED -> midgroundDarkSolarized
+        ThemeStyle.SOLARIZED_LIGHT -> midgroundLightSolarized
+        ThemeStyle.SOLARIZED_DARK -> midgroundDarkSolarized
     }
 
     internal fun background(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT -> backgroundLight
         ThemeStyle.DARK -> backgroundDark
         ThemeStyle.DARK_AMOLED -> backgroundDarkAmoled
-        ThemeStyle.LIGHT_SOLARIZED -> backgroundLightSolarized
-        ThemeStyle.DARK_SOLARIZED -> backgroundDarkSolarized
+        ThemeStyle.SOLARIZED_LIGHT -> backgroundLightSolarized
+        ThemeStyle.SOLARIZED_DARK -> backgroundDarkSolarized
     }
 
     internal fun outline(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT -> outlineLight
         ThemeStyle.DARK -> outlineDark
         ThemeStyle.DARK_AMOLED -> outlineDarkAmoled
-        ThemeStyle.LIGHT_SOLARIZED -> outlineLightSolarized
-        ThemeStyle.DARK_SOLARIZED -> outlineDarkSolarized
+        ThemeStyle.SOLARIZED_LIGHT -> outlineLightSolarized
+        ThemeStyle.SOLARIZED_DARK -> outlineDarkSolarized
     }
 
     internal fun content(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT -> contentLight
         ThemeStyle.DARK, ThemeStyle.DARK_AMOLED -> contentDark
-        ThemeStyle.LIGHT_SOLARIZED -> contentLightSolarized
-        ThemeStyle.DARK_SOLARIZED -> contentDarkSolarized
+        ThemeStyle.SOLARIZED_LIGHT -> contentLightSolarized
+        ThemeStyle.SOLARIZED_DARK -> contentDarkSolarized
     }
 
     internal fun contentSubtle(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT -> contentSubtleLight
         ThemeStyle.DARK, ThemeStyle.DARK_AMOLED -> contentSubtleDark
-        ThemeStyle.LIGHT_SOLARIZED -> contentSubtleLightSolarized
-        ThemeStyle.DARK_SOLARIZED -> contentSubtleDarkSolarized
+        ThemeStyle.SOLARIZED_LIGHT -> contentSubtleLightSolarized
+        ThemeStyle.SOLARIZED_DARK -> contentSubtleDarkSolarized
     }
 
     internal fun contentDisabled(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT -> contentDisabledLight
         ThemeStyle.DARK, ThemeStyle.DARK_AMOLED -> contentDisabledDark
-        ThemeStyle.LIGHT_SOLARIZED -> contentDisabledLightSolarized
-        ThemeStyle.DARK_SOLARIZED -> contentDisabledDarkSolarized
+        ThemeStyle.SOLARIZED_LIGHT -> contentDisabledLightSolarized
+        ThemeStyle.SOLARIZED_DARK -> contentDisabledDarkSolarized
     }
 
 }

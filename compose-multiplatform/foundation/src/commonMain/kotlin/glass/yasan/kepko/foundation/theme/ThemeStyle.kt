@@ -31,14 +31,14 @@ public enum class ThemeStyle(
         title = { stringResource(Res.string.theme_style_dark_amoled) }
     ),
     @ExperimentalKepkoApi
-    LIGHT_SOLARIZED(
-        id = "light-solarized",
+    SOLARIZED_LIGHT(
+        id = "solarized-light",
         isDark = false,
         title = { stringResource(Res.string.theme_style_light_solarized) }
     ),
     @ExperimentalKepkoApi
-    DARK_SOLARIZED(
-        id = "dark-solarized",
+    SOLARIZED_DARK(
+        id = "solarized-dark",
         isDark = true,
         title = { stringResource(Res.string.theme_style_dark_solarized) }
     ),
