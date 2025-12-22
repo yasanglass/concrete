@@ -47,6 +47,7 @@ public fun ButtonText(
     contentPadding: PaddingValues = ButtonTextDefaults.ContentPadding,
     interactionSource: MutableInteractionSource? = null,
     fillWidth: Boolean = true,
+    annotation: PreferenceAnnotation? = null,
     leadingIcon: Painter?,
     trailingIcon: Painter?,
 ) {
@@ -67,6 +68,7 @@ public fun ButtonText(
         contentPadding = contentPadding,
         interactionSource = interactionSource,
         fillWidth = fillWidth,
+        annotation = annotation,
         leadingContent = {
             leadingIcon?.let { painter ->
                 Icon(
@@ -106,6 +108,7 @@ public fun ButtonText(
     contentPadding: PaddingValues = ButtonTextDefaults.ContentPadding,
     interactionSource: MutableInteractionSource? = null,
     fillWidth: Boolean = true,
+    annotation: PreferenceAnnotation? = null,
     leadingIcon: ImageVector?,
     trailingIcon: ImageVector?,
 ) {
@@ -126,6 +129,7 @@ public fun ButtonText(
         contentPadding = contentPadding,
         interactionSource = interactionSource,
         fillWidth = fillWidth,
+        annotation = annotation,
         leadingContent = {
             leadingIcon?.let { imageVector ->
                 Icon(
@@ -165,6 +169,7 @@ public fun ButtonText(
     contentPadding: PaddingValues = ButtonTextDefaults.ContentPadding,
     interactionSource: MutableInteractionSource? = null,
     fillWidth: Boolean = true,
+    annotation: PreferenceAnnotation? = null,
     leadingContent: @Composable RowScope.() -> Unit = {},
     trailingContent: @Composable RowScope.() -> Unit = {},
 ) {
@@ -191,6 +196,12 @@ public fun ButtonText(
                     modifier = Modifier
                         .then(if (fillWidth) Modifier.weight(1f) else Modifier)
                 )
+                annotation?.let {
+                    TextPill(
+                        annotation = it,
+                        modifier = Modifier.padding(start = 12.dp),
+                    )
+                }
                 trailingContent()
             }
         },
@@ -233,6 +244,7 @@ private fun ButtonTextPreview() {
                         containerColor = containerColor,
                         leadingIcon = painterResource(Res.drawable.ic_asterisk),
                         trailingIcon = painterResource(Res.drawable.ic_asterisk),
+                        annotation = PreferenceAnnotation.preview,
                     )
                     ButtonText(
                         text = "Button Text",

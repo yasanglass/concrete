@@ -53,7 +53,6 @@ import glass.yasan.kepko.composeapp.generated.resources.ic_heart_smile
 import glass.yasan.kepko.composeapp.generated.resources.ic_new_releases
 import glass.yasan.kepko.foundation.border.border
 import glass.yasan.kepko.foundation.color.contentColorFor
-import glass.yasan.kepko.foundation.color.getSemanticColors
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import glass.yasan.kepko.foundation.theme.ThemeStyle
 import glass.yasan.kepko.util.asPreferenceRadioGroupItems
@@ -452,6 +451,16 @@ private fun LazyListScope.exampleButtonText() {
             text = "ButtonText",
             leadingIcon = painterResource(Res.drawable.ic_bolt),
             trailingIcon = painterResource(Res.drawable.ic_arrow_forward),
+            containerColor = KepkoTheme.colors.foreground,
+            annotation = PreferenceAnnotation.new,
+            onClick = {},
+        )
+    }
+    item {
+        ButtonText(
+            text = "ButtonText",
+            leadingIcon = painterResource(Res.drawable.ic_bolt),
+            trailingIcon = painterResource(Res.drawable.ic_arrow_forward),
             onClick = {},
         )
     }
@@ -497,6 +506,7 @@ private fun LazyListScope.exampleButtonText() {
             trailingIcon = painterResource(Res.drawable.ic_family_star),
             containerColor = KepkoTheme.colors.foreground,
             onClick = {},
+            annotation = PreferenceAnnotation.alpha,
             fillWidth = false,
         )
     }
@@ -518,6 +528,15 @@ private fun LazyListScope.exampleButtonText() {
             containerColor = KepkoTheme.colors.success,
             onClick = {},
             fillWidth = false,
+        )
+    }
+    item {
+        ButtonText(
+            text = "ButtonText",
+            containerColor = KepkoTheme.colors.foreground,
+            onClick = {},
+            fillWidth = false,
+            annotation = PreferenceAnnotation.beta,
         )
     }
     item {
