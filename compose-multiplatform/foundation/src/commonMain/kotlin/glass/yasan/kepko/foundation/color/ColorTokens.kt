@@ -58,7 +58,7 @@ public object ColorTokens {
 
     private val successSolarized: Color = Color(0xFF859900)
     private val onSuccessSolarized: Color = Color(0xFFfdf6e3)
-    private val informationSolarized: Color = Color(0xFF268bd2)
+    private val informationSolarized: Color = Color(0xFF2aa198)
     private val onInformationSolarized: Color = Color(0xFFfdf6e3)
     private val cautionSolarized: Color = Color(0xFFb58900)
     private val onCautionSolarized: Color = Color(0xFFfdf6e3)
