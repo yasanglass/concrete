@@ -542,10 +542,9 @@ private fun LazyListScope.exampleButtonText() {
 private fun LazyListScope.exampleTextPill() {
     item { HorizontalDivider() }
     item {
-        KepkoTheme.colors.getSemanticColors().forEach { color ->
+        PreferenceAnnotation.all.forEach { annotation ->
             TextPill(
-                text = "TextPill",
-                containerColor = color,
+                annotation = annotation,
                 modifier = Modifier.padding(top = 12.dp),
             )
         }

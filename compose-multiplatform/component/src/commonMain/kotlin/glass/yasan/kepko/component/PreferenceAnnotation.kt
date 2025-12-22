@@ -46,6 +46,15 @@ public class PreferenceAnnotation(
             containerColor = { KepkoTheme.colors.danger },
         )
 
+        public val all: List<PreferenceAnnotation> = listOf(
+            new,
+            preview,
+            experimental,
+            beta,
+            alpha,
+            legacy,
+        )
+
     }
 
 }
