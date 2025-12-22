@@ -42,6 +42,7 @@ public fun PreferenceContainer(
 
     Column(
         modifier = modifier
+            .fillMaxWidth()
             .border(color = KepkoTheme.colors.outline, shape)
             .clip(shape)
             .clickable(
@@ -52,45 +53,34 @@ public fun PreferenceContainer(
             )
             .background(KepkoTheme.colors.foreground)
             .padding(
-                vertical = 8.dp,
+                vertical = 12.dp,
                 horizontal = 24.dp,
             ),
     ) {
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Column(
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-                modifier = Modifier.weight(1f).padding(vertical = 4.dp),
-            ) {
-                Text(
-                    text = title,
-                    color = titleContentColor,
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 16.sp,
-                )
-                description?.let {
-                    Text(
-                        text = it,
-                        color = descriptionContentColor,
-                        lineHeight = 16.sp,
-                        fontSize = 12.sp,
-                    )
-                }
-                ProvideLocalContentColor(titleContentColor) {
-                    content()
-                }
-                annotation?.let {
-                    TextPill(
-                        text = it.text(),
-                        containerColor = it.containerColor(),
-                        contentColor = it.contentColor(),
-                        modifier = Modifier.padding(vertical = 4.dp),
-                    )
-                }
-            }
+        Text(
+            text = title,
+            color = titleContentColor,
+            fontWeight = FontWeight.Medium,
+            fontSize = 16.sp,
+        )
+        description?.let {
+            Text(
+                text = it,
+                color = descriptionContentColor,
+                lineHeight = 16.sp,
+                fontSize = 12.sp,
+            )
+        }
+        ProvideLocalContentColor(titleContentColor) {
+            content()
+        }
+        annotation?.let {
+            TextPill(
+                text = it.text(),
+                containerColor = it.containerColor(),
+                contentColor = it.contentColor(),
+                modifier = Modifier.padding(vertical = 4.dp),
+            )
         }
     }
 }
