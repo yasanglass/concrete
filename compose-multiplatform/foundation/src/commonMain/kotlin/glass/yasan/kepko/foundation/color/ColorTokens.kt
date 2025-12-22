@@ -11,7 +11,7 @@ public object ColorTokens {
 
     private val contentLight: Color = Color(0xFF212121)
     private val contentSubtleLight: Color = Color(0xFF666666)
-    private val contentDisabledLight: Color = Color(0x80666666)
+    private val contentDisabledLight: Color = Color(0xFFB3B3B3)
 
     private val foregroundDark: Color = Color(0xFF1F1F1F)
     private val midgroundDark: Color = Color(0xFF121212)
@@ -37,15 +37,16 @@ public object ColorTokens {
 
     private val contentDark: Color = Color(0xFFE0E0E0)
     private val contentSubtleDark: Color = Color(0xFFA0A0A0)
-    private val contentDisabledDark: Color = Color(0x80A0A0A0)
+    private val contentDisabledDark: Color = Color(0xFF606060)
+    private val contentDisabledBlack: Color = Color(0xFF505050)
 
     private val contentLightSolarized: Color = Color(0xFF657b83)
     private val contentSubtleLightSolarized: Color = Color(0xFF93a1a1)
-    private val contentDisabledLightSolarized: Color = Color(0x8093a1a1)
+    private val contentDisabledLightSolarized: Color = Color(0xFFC8CCC2)
 
     private val contentDarkSolarized: Color = Color(0xFF839496)
     private val contentSubtleDarkSolarized: Color = Color(0xFF586e75)
-    private val contentDisabledDarkSolarized: Color = Color(0x80586e75)
+    private val contentDisabledDarkSolarized: Color = Color(0xFF30525C)
 
     private val successStandard: Color = Color(0xFF04B34F)
     private val onSuccessStandard: Color = Color(0xFF000000)
@@ -154,7 +155,8 @@ public object ColorTokens {
 
     internal fun contentDisabled(style: ThemeStyle): Color = when (style) {
         ThemeStyle.LIGHT -> contentDisabledLight
-        ThemeStyle.DARK, ThemeStyle.BLACK -> contentDisabledDark
+        ThemeStyle.DARK -> contentDisabledDark
+        ThemeStyle.BLACK -> contentDisabledBlack
         ThemeStyle.SOLARIZED_LIGHT -> contentDisabledLightSolarized
         ThemeStyle.SOLARIZED_DARK -> contentDisabledDarkSolarized
     }
