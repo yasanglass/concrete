@@ -26,18 +26,22 @@ public fun Switch(
         onCheckedChange = onCheckedChange,
         enabled = enabled,
         colors = Material3SwitchDefaults.colors(
+            // Checked
             checkedBorderColor = KepkoTheme.colors.content,
             checkedThumbColor = KepkoTheme.colors.foreground,
             checkedTrackColor = KepkoTheme.colors.content,
-            disabledCheckedBorderColor = KepkoTheme.colors.contentDisabled,
-            disabledCheckedThumbColor = KepkoTheme.colors.contentDisabled,
-            disabledCheckedTrackColor = KepkoTheme.colors.midground,
-            disabledUncheckedBorderColor = KepkoTheme.colors.contentDisabled,
-            disabledUncheckedThumbColor = KepkoTheme.colors.contentDisabled,
-            disabledUncheckedTrackColor = KepkoTheme.colors.midground,
+            // Unchecked
             uncheckedBorderColor = KepkoTheme.colors.content,
             uncheckedThumbColor = KepkoTheme.colors.content,
             uncheckedTrackColor = KepkoTheme.colors.foreground,
+            // Checked Disabled
+            disabledCheckedBorderColor = KepkoTheme.colors.contentDisabled,
+            disabledCheckedThumbColor = KepkoTheme.colors.foreground,
+            disabledCheckedTrackColor = KepkoTheme.colors.contentDisabled,
+            // Unchecked Disabled
+            disabledUncheckedBorderColor = KepkoTheme.colors.contentDisabled,
+            disabledUncheckedThumbColor = KepkoTheme.colors.contentDisabled,
+            disabledUncheckedTrackColor = KepkoTheme.colors.foreground,
         ),
         modifier = modifier,
     )
