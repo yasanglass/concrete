@@ -214,6 +214,7 @@ private fun LazyListScope.examplePreferenceRadioButton() {
     }
 }
 
+@Suppress("LongMethod")
 private fun LazyListScope.examplePreferenceSwitch() {
     item {
         HorizontalDivider()
@@ -265,6 +266,15 @@ private fun LazyListScope.examplePreferenceSwitch() {
             title = "PreferenceSwitch",
             description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             checked = true,
+            onCheckedChange = {},
+            enabled = false,
+        )
+    }
+    item {
+        PreferenceSwitch(
+            title = "PreferenceSwitch",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            checked = false,
             onCheckedChange = {},
             enabled = false,
         )
