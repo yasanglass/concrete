@@ -1,6 +1,19 @@
-![Banner](./assets/banner.png)
+<p align="center">
+  <img src="./assets/banner.png" alt="Banner"/>
+</p>
 
-[![version](https://img.shields.io/maven-central/v/glass.yasan.kepko/foundation?label=version)](https://central.sonatype.com/artifact/glass.yasan.kepko/core) [![License](https://img.shields.io/github/license/yasanglass/kepko.svg)](LICENSE) [![android](https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/android.yml?label=android)](https://github.com/yasanglass/kepko/actions/workflows/android.yml) [![jvm](https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/jvm.yml?label=jvm)](https://github.com/yasanglass/kepko/actions/workflows/jvm.yml) [![ios](https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/ios.yml?label=ios)](https://github.com/yasanglass/kepko/actions/workflows/ios.yml) [![js](https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/js.yml?label=js)](https://github.com/yasanglass/kepko/actions/workflows/js.yml) [![wasm](https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/wasm.yml?label=wasm)](https://github.com/yasanglass/kepko/actions/workflows/wasm.yml) [![detekt](https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/detekt.yml?label=detekt)](https://github.com/yasanglass/kepko/actions/workflows/detekt.yml) [![publish](https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/publish.yml?label=publish)](https://github.com/yasanglass/kepko/actions/workflows/publish.yml)
+<p align="center">
+  <a href="https://central.sonatype.com/artifact/glass.yasan.kepko/core"><img alt="version" src="https://img.shields.io/maven-central/v/glass.yasan.kepko/foundation?label=version"/></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/yasanglass/kepko.svg"/></a>
+  <a href="https://kotlinlang.org"><img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-2.3.0-purple.svg?style=flat"/></a>
+  <a href="https://github.com/yasanglass/kepko/actions/workflows/android.yml"><img alt="android" src="https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/android.yml?label=android"/></a>
+  <a href="https://github.com/yasanglass/kepko/actions/workflows/jvm.yml"><img alt="jvm" src="https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/jvm.yml?label=jvm"/></a>
+  <a href="https://github.com/yasanglass/kepko/actions/workflows/ios.yml"><img alt="ios" src="https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/ios.yml?label=ios"/></a>
+  <a href="https://github.com/yasanglass/kepko/actions/workflows/js.yml"><img alt="js" src="https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/js.yml?label=js"/></a>
+  <a href="https://github.com/yasanglass/kepko/actions/workflows/wasm.yml"><img alt="wasm" src="https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/wasm.yml?label=wasm"/></a>
+  <a href="https://github.com/yasanglass/kepko/actions/workflows/detekt.yml"><img alt="detekt" src="https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/detekt.yml?label=detekt"/></a>
+  <a href="https://github.com/yasanglass/kepko/actions/workflows/publish.yml"><img alt="publish" src="https://img.shields.io/github/actions/workflow/status/yasanglass/kepko/publish.yml?label=publish"/></a>
+</p>
 
 A work-in-progress design system for Compose Multiplatform.
 
