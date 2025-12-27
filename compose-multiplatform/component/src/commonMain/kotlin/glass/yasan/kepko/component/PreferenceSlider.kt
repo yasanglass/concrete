@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.theme.KepkoTheme
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 
 @OptIn(ExperimentalKepkoApi::class)
 @Composable
@@ -54,34 +54,61 @@ public fun PreferenceSlider(
     )
 }
 
-@OptIn(ExperimentalKepkoApi::class)
-@Preview
+@PreviewWithTest
 @Composable
-private fun PreferenceSliderPreview() {
+internal fun PreferenceSliderLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceSliderDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceSliderBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceSliderSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceSliderSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { PreviewContent() }
+}
+
+@Composable
+private fun PreviewContent() {
     val annotations = arrayOf(PreferenceAnnotation.new, null)
     val descriptions = arrayOf(
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         null
     )
 
-    KepkoTheme {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-            modifier = Modifier
-                .background(KepkoTheme.colors.midground)
-                .padding(vertical = 16.dp),
-        ) {
-            annotations.forEach { annotation ->
-                descriptions.forEach { description ->
-                    PreferenceSlider(
-                        title = "Preference Slider",
-                        description = description,
-                        value = 0.5f,
-                        onValueChange = {},
-                        annotation = annotation,
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                    )
-                }
+    Column(
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = Modifier
+            .background(KepkoTheme.colors.midground)
+            .padding(vertical = 16.dp),
+    ) {
+        annotations.forEach { annotation ->
+            descriptions.forEach { description ->
+                PreferenceSlider(
+                    title = "PreferenceSlider",
+                    description = description,
+                    value = 0.5f,
+                    steps = 5,
+                    onValueChange = {},
+                    annotation = annotation,
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                )
             }
         }
     }

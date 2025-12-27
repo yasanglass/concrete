@@ -10,8 +10,8 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.theme.KepkoTheme
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalKepkoApi::class)
 @Composable
@@ -72,37 +72,70 @@ public fun PreferenceRadioButton(
     )
 }
 
-@OptIn(ExperimentalKepkoApi::class)
-@Preview
+@PreviewWithTest
 @Composable
-private fun PreferenceRadioButtonPreview() {
+internal fun PreferenceRadioButtonLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceRadioButtonDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceRadioButtonBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceRadioButtonSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceRadioButtonSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { PreviewContent() }
+}
+
+@Composable
+private fun PreviewContent() {
     val annotations = arrayOf(PreferenceAnnotation.new, null)
     val descriptions = arrayOf(
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         null
     )
 
-    KepkoTheme {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-            modifier = Modifier
-                .background(KepkoTheme.colors.midground)
-                .padding(vertical = 16.dp),
-        ) {
-            annotations.forEach { annotation ->
-                descriptions.forEach { description ->
-                    PreferenceRadioButton(
-                        title = "Preference RadioButton",
-                        selected = true,
-                        onClick = {},
-                        enabled = false,
-                        leadingIcon = painterResource(Res.drawable.ic_asterisk),
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                        description = description,
-                        annotation = annotation,
-                    )
-                }
+    Column(
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = Modifier
+            .background(KepkoTheme.colors.midground)
+            .padding(vertical = 16.dp),
+    ) {
+        annotations.forEachIndexed { annotationIndex, annotation ->
+            descriptions.forEachIndexed { descriptionIndex, description ->
+                PreferenceRadioButton(
+                    title = "PreferenceRadioButton",
+                    selected = annotationIndex != 1 || descriptionIndex != 1,
+                    onClick = {},
+                    leadingIcon = painterResource(Res.drawable.ic_asterisk),
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    description = description,
+                    annotation = annotation,
+                )
             }
         }
+        PreferenceRadioButton(
+            title = "Preference RadioButton",
+            selected = false,
+            onClick = {},
+            enabled = false,
+            leadingIcon = painterResource(Res.drawable.ic_asterisk),
+            modifier = Modifier.padding(horizontal = 16.dp),
+        )
     }
 }

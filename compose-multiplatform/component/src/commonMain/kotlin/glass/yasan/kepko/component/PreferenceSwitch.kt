@@ -10,8 +10,8 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.theme.KepkoTheme
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalKepkoApi::class)
 @Composable
@@ -72,36 +72,62 @@ public fun PreferenceSwitch(
     )
 }
 
-@OptIn(ExperimentalKepkoApi::class)
-@Preview
+@PreviewWithTest
 @Composable
-private fun PreferenceSwitchPreview() {
+internal fun PreferenceSwitchLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceSwitchDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceSwitchBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceSwitchSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceSwitchSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { PreviewContent() }
+}
+
+@Composable
+private fun PreviewContent() {
     val annotations = arrayOf(PreferenceAnnotation.new, null)
     val descriptions = arrayOf(
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         null
     )
 
-    KepkoTheme {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-            modifier = Modifier
-                .background(KepkoTheme.colors.midground)
-                .padding(vertical = 16.dp),
-        ) {
-            annotations.forEach { annotation ->
-                descriptions.forEach { description ->
-                    PreferenceSwitch(
-                        title = "Preference Switch",
-                        description = description,
-                        checked = true,
-                        enabled = true,
-                        onCheckedChange = {},
-                        annotation = annotation,
-                        leadingIcon = painterResource(Res.drawable.ic_asterisk),
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                    )
-                }
+    Column(
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = Modifier
+            .background(KepkoTheme.colors.midground)
+            .padding(vertical = 16.dp),
+    ) {
+        annotations.forEach { annotation ->
+            descriptions.forEach { description ->
+                PreferenceSwitch(
+                    title = "Preference Switch",
+                    description = description,
+                    checked = true,
+                    enabled = true,
+                    onCheckedChange = {},
+                    annotation = annotation,
+                    leadingIcon = painterResource(Res.drawable.ic_asterisk),
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                )
             }
         }
     }

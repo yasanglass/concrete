@@ -26,8 +26,8 @@ import glass.yasan.kepko.foundation.border.borderStrokeFor
 import glass.yasan.kepko.foundation.color.contentColorFor
 import glass.yasan.kepko.foundation.color.getSemanticColors
 import glass.yasan.kepko.foundation.theme.KepkoTheme
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 public fun ButtonText(
@@ -218,40 +218,69 @@ public fun ButtonText(
 }
 
 
-@Preview
+@PreviewWithTest
 @Composable
-private fun ButtonTextPreview() {
-    KepkoTheme {
-        val containerColors = KepkoTheme.colors.getSemanticColors() +
-                KepkoTheme.colors.foreground +
-                KepkoTheme.colors.content
+internal fun ButtonTextLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { PreviewContent() }
+}
 
-        Column(
-            modifier = Modifier.background(KepkoTheme.colors.foreground)
-        ) {
-            containerColors.forEach { containerColor ->
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(4.dp),
-                    modifier = Modifier
-                        .padding(
-                            vertical = 2.dp,
-                            horizontal = 4.dp,
-                        ),
-                ) {
-                    ButtonText(
-                        text = "Button Text",
-                        onClick = {},
-                        containerColor = containerColor,
-                        leadingIcon = painterResource(Res.drawable.ic_asterisk),
-                        trailingIcon = painterResource(Res.drawable.ic_asterisk),
-                        annotation = PreferenceAnnotation.preview,
-                    )
-                    ButtonText(
-                        text = "Button Text",
-                        onClick = {},
-                        containerColor = containerColor,
-                    )
-                }
+@PreviewWithTest
+@Composable
+internal fun ButtonTextDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun ButtonTextBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun ButtonTextSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun ButtonTextSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { PreviewContent() }
+}
+
+@Composable
+private fun PreviewContent() {
+    val containerColors = KepkoTheme.colors.getSemanticColors() +
+            KepkoTheme.colors.foreground +
+            KepkoTheme.colors.content
+
+    Column(
+        modifier = Modifier
+            .background(KepkoTheme.colors.foreground)
+            .padding(vertical = 4.dp),
+    ) {
+        containerColors.forEach { containerColor ->
+            Column(
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+                modifier = Modifier
+                    .padding(
+                        vertical = 2.dp,
+                        horizontal = 8.dp,
+                    ),
+            ) {
+                ButtonText(
+                    text = "Button Text",
+                    onClick = {},
+                    containerColor = containerColor,
+                    leadingIcon = painterResource(Res.drawable.ic_asterisk),
+                    trailingIcon = painterResource(Res.drawable.ic_asterisk),
+                    annotation = PreferenceAnnotation.preview,
+                )
+                ButtonText(
+                    text = "Button Text",
+                    onClick = {},
+                    containerColor = containerColor,
+                )
             }
         }
     }

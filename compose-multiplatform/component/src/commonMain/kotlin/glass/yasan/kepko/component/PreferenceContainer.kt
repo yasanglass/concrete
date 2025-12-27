@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.sp
 import glass.yasan.kepko.foundation.border.border
 import glass.yasan.kepko.foundation.color.ProvideLocalContentColor
 import glass.yasan.kepko.foundation.theme.KepkoTheme
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 
 @Composable
 public fun PreferenceContainer(
@@ -156,84 +156,138 @@ public fun PreferenceContainer(
     }
 }
 
-@Preview
+@PreviewWithTest
 @Composable
-private fun PreferenceContainerHorizontalPreview() {
+internal fun PreferenceContainerHorizontalLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { HorizontalPreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceContainerHorizontalDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { HorizontalPreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceContainerHorizontalBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { HorizontalPreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceContainerHorizontalSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { HorizontalPreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceContainerHorizontalSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { HorizontalPreviewContent() }
+}
+
+@Composable
+private fun HorizontalPreviewContent() {
     val annotations = arrayOf(PreferenceAnnotation.experimental, null)
     val descriptions = arrayOf(
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         null
     )
 
-    KepkoTheme {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-            modifier = Modifier
-                .background(KepkoTheme.colors.midground)
-                .padding(vertical = 16.dp),
-        ) {
-            annotations.forEach { annotation ->
-                descriptions.forEach { description ->
-                    PreferenceContainer(
-                        title = "Preference Container",
-                        description = description,
-                        enabled = true,
-                        annotation = annotation,
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                        content = {
-                            Spacer(
-                                modifier = Modifier
-                                    .size(32.dp)
-                                    .background(KepkoTheme.colors.information),
-                            )
-                        },
-                    )
-                }
+    Column(
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = Modifier
+            .background(KepkoTheme.colors.midground)
+            .padding(vertical = 16.dp),
+    ) {
+        annotations.forEach { annotation ->
+            descriptions.forEach { description ->
+                PreferenceContainer(
+                    title = "PreferenceContainer",
+                    description = description,
+                    enabled = true,
+                    annotation = annotation,
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    content = {
+                        Spacer(
+                            modifier = Modifier
+                                .size(32.dp)
+                                .background(KepkoTheme.colors.information),
+                        )
+                    },
+                )
             }
         }
     }
 }
 
-@Preview
+@PreviewWithTest
 @Composable
-private fun PreferenceContainerVerticalPreview() {
+internal fun PreferenceContainerVerticalLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { VerticalPreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceContainerVerticalDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { VerticalPreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceContainerVerticalBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { VerticalPreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceContainerVerticalSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { VerticalPreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceContainerVerticalSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { VerticalPreviewContent() }
+}
+
+@Composable
+private fun VerticalPreviewContent() {
     val annotations = arrayOf(PreferenceAnnotation.experimental, null)
     val descriptions = arrayOf(
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         null
     )
 
-    KepkoTheme {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-            modifier = Modifier
-                .background(KepkoTheme.colors.midground)
-                .padding(vertical = 16.dp),
-        ) {
-            annotations.forEach { annotation ->
-                descriptions.forEach { description ->
-                    PreferenceContainer(
-                        title = "Preference Container",
-                        description = description,
-                        enabled = true,
-                        annotation = annotation,
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                        leadingContent = {
-                            Spacer(
-                                modifier = Modifier
-                                    .size(32.dp)
-                                    .background(KepkoTheme.colors.information),
-                            )
-                        },
-                        trailingContent = {
-                            Spacer(
-                                modifier = Modifier
-                                    .size(32.dp)
-                                    .background(KepkoTheme.colors.caution),
-                            )
-                        },
-                    )
-                }
+    Column(
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = Modifier
+            .background(KepkoTheme.colors.midground)
+            .padding(vertical = 16.dp),
+    ) {
+        annotations.forEach { annotation ->
+            descriptions.forEach { description ->
+                PreferenceContainer(
+                    title = "PreferenceContainer",
+                    description = description,
+                    enabled = true,
+                    annotation = annotation,
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    leadingContent = {
+                        Spacer(
+                            modifier = Modifier
+                                .size(32.dp)
+                                .background(KepkoTheme.colors.information),
+                        )
+                    },
+                    trailingContent = {
+                        Spacer(
+                            modifier = Modifier
+                                .size(32.dp)
+                                .background(KepkoTheme.colors.caution),
+                        )
+                    },
+                )
             }
         }
     }

@@ -17,8 +17,8 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import glass.yasan.kepko.foundation.theme.KepkoTheme
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 public fun AppIdentity(
@@ -79,49 +79,76 @@ public fun AppIdentity(
     }
 }
 
-@Preview
+@PreviewWithTest
 @Composable
-private fun AppIdentityPreview() {
-    KepkoTheme {
-        val title = "Kepko"
-        val versionName = "1.0.0"
+internal fun AppIdentityLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { PreviewContent() }
+}
 
-        Foreground {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                AppIdentity(
-                    title = title,
-                    versionName = versionName,
-                    icon = painterResource(resource = Res.drawable.ic_asterisk),
-                    extras = arrayOf(100.toString(), "flavor"),
-                    annotation = PreferenceAnnotation.beta,
-                )
-                HorizontalDivider()
-                AppIdentity(
-                    title = title,
-                    icon = painterResource(resource = Res.drawable.ic_asterisk),
-                    versionName = versionName,
-                    extras = arrayOf("sega", "bodega", "2023"),
-                )
-                HorizontalDivider()
-                AppIdentity(
-                    title = title,
-                    icon = painterResource(resource = Res.drawable.ic_asterisk),
-                    versionName = "1.0.0",
-                )
-                HorizontalDivider()
-                AppIdentity(
-                    title = title,
-                    versionName = versionName,
-                    extras = arrayOf(100.toString(), "flavor"),
-                )
-                HorizontalDivider()
-                AppIdentity(
-                    title = title,
-                    versionName = versionName,
-                )
-            }
+@PreviewWithTest
+@Composable
+internal fun AppIdentityDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun AppIdentityBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun AppIdentitySolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun AppIdentitySolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { PreviewContent() }
+}
+
+@Composable
+private fun PreviewContent() {
+    val title = "Kepko"
+    val versionName = "1.0.0"
+
+    Foreground {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            AppIdentity(
+                title = title,
+                versionName = versionName,
+                icon = painterResource(resource = Res.drawable.ic_asterisk),
+                extras = arrayOf(100.toString(), "flavor"),
+                annotation = PreferenceAnnotation.beta,
+            )
+            HorizontalDivider()
+            AppIdentity(
+                title = title,
+                icon = painterResource(resource = Res.drawable.ic_asterisk),
+                versionName = versionName,
+                extras = arrayOf("sega", "bodega", "2023"),
+            )
+            HorizontalDivider()
+            AppIdentity(
+                title = title,
+                icon = painterResource(resource = Res.drawable.ic_asterisk),
+                versionName = "1.0.0",
+            )
+            HorizontalDivider()
+            AppIdentity(
+                title = title,
+                versionName = versionName,
+                extras = arrayOf(100.toString(), "flavor"),
+            )
+            HorizontalDivider()
+            AppIdentity(
+                title = title,
+                versionName = versionName,
+            )
         }
     }
 }

@@ -22,7 +22,7 @@ import glass.yasan.kepko.foundation.color.ProvideLocalContentColor
 import glass.yasan.kepko.foundation.color.contentColorFor
 import glass.yasan.kepko.foundation.color.getSemanticColors
 import glass.yasan.kepko.foundation.theme.KepkoTheme
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 import androidx.compose.material3.Button as Material3Button
 import androidx.compose.material3.ButtonDefaults as Material3ButtonDefaults
 
@@ -63,50 +63,77 @@ public fun Button(
     }
 }
 
-@Preview
+@PreviewWithTest
 @Composable
-private fun ButtonPreview() {
-    KepkoTheme {
-        val containerColors = KepkoTheme.colors.getSemanticColors() +
-                KepkoTheme.colors.foreground +
-                KepkoTheme.colors.content
+internal fun ButtonLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { PreviewContent() }
+}
 
-        Column(
-            modifier = Modifier.background(KepkoTheme.colors.foreground)
-        ) {
-            containerColors.forEach { containerColor ->
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                    modifier = Modifier.padding(
-                        vertical = 2.dp,
-                        horizontal = 4.dp,
-                    ),
-                ) {
-                    Button(
-                        onClick = {},
-                        containerColor = containerColor,
-                        content = {
-                            Text(
-                                text = "Enabled",
-                                maxLines = 1,
-                            )
-                        },
-                        modifier = Modifier.weight(1f),
-                    )
-                    Button(
-                        onClick = {},
-                        enabled = false,
-                        containerColor = containerColor,
-                        content = {
-                            Text(
-                                text = "Disabled",
-                                maxLines = 1,
-                            )
-                        },
-                        modifier = Modifier.weight(1f),
-                    )
-                }
+@PreviewWithTest
+@Composable
+internal fun ButtonDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun ButtonBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun ButtonSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun ButtonSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { PreviewContent() }
+}
+
+@Composable
+private fun PreviewContent() {
+    val containerColors = KepkoTheme.colors.getSemanticColors() +
+            KepkoTheme.colors.foreground +
+            KepkoTheme.colors.content
+
+    Column(
+        modifier = Modifier.background(KepkoTheme.colors.foreground)
+    ) {
+        containerColors.forEach { containerColor ->
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                modifier = Modifier.padding(
+                    vertical = 2.dp,
+                    horizontal = 4.dp,
+                ),
+            ) {
+                Button(
+                    onClick = {},
+                    containerColor = containerColor,
+                    content = {
+                        Text(
+                            text = "Button",
+                            maxLines = 1,
+                        )
+                    },
+                    modifier = Modifier.weight(1f),
+                )
+                Button(
+                    onClick = {},
+                    enabled = false,
+                    containerColor = containerColor,
+                    content = {
+                        Text(
+                            text = "Button",
+                            maxLines = 1,
+                        )
+                    },
+                    modifier = Modifier.weight(1f),
+                )
             }
         }
     }

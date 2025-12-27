@@ -11,7 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import glass.yasan.kepko.foundation.theme.KepkoTheme
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 import androidx.compose.material3.Slider as Material3Slider
 import androidx.compose.material3.SliderDefaults as Material3SliderDefaults
 
@@ -50,32 +50,57 @@ public fun Slider(
     )
 }
 
-@Preview
+@PreviewWithTest
 @Composable
-private fun SliderPreview() {
+internal fun SliderLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun SliderDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun SliderBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun SliderSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun SliderSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { PreviewContent() }
+}
+
+@Composable
+private fun PreviewContent() {
     val values = arrayOf(0, 25, 50, 75, 100)
     val enabled = arrayOf(true, false)
 
-    Column {
-        KepkoTheme {
-            Column(
-                modifier = Modifier.background(KepkoTheme.colors.foreground)
-            ) {
-                values.forEach { value ->
-                    enabled.forEach { isEnabled ->
-                        Column(
-                            modifier = Modifier.padding(16.dp),
-                        ) {
-                            Slider(
-                                value = value / 100f,
-                                onValueChange = {},
-                                steps = 5,
-                                enabled = isEnabled,
-                            )
-                        }
-                        HorizontalDivider()
-                    }
+    Column(
+        modifier = Modifier.background(KepkoTheme.colors.foreground)
+    ) {
+        values.forEach { value ->
+            enabled.forEach { isEnabled ->
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                ) {
+                    Slider(
+                        value = value / 100f,
+                        onValueChange = {},
+                        steps = 5,
+                        enabled = isEnabled,
+                    )
                 }
+                HorizontalDivider()
             }
         }
     }
