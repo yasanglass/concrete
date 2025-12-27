@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import glass.yasan.kepko.foundation.theme.KepkoTheme
+import org.jetbrains.compose.resources.painterResource
 import androidx.compose.material3.Icon as Material3Icon
 
 @Composable
@@ -63,4 +64,15 @@ public fun Icon(
         modifier = modifier
             .size(24.dp),
     )
+}
+
+@PreviewWithTest
+@Composable
+public fun IconPreview() {
+    KepkoTheme {
+        Icon(
+            painter = painterResource(Res.drawable.ic_asterisk),
+            contentDescription = "Asterisk",
+        )
+    }
 }

@@ -2,15 +2,12 @@ package glass.yasan.kepko.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import glass.yasan.kepko.foundation.theme.KepkoTheme
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 import androidx.compose.material3.Switch as Material3Switch
 import androidx.compose.material3.SwitchDefaults as Material3SwitchDefaults
 
@@ -47,40 +44,56 @@ public fun Switch(
     )
 }
 
-@Preview
+@PreviewWithTest
 @Composable
-private fun SwitchPreview() {
+internal fun SwitchLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun SwitchDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun SwitchBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun SwitchSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun SwitchSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { PreviewContent() }
+}
+
+@Composable
+private fun PreviewContent() {
     val checked = arrayOf(true, false)
     val enabled = arrayOf(true, false)
 
-    Column {
-        KepkoTheme {
-            Column(
-                modifier = Modifier.background(KepkoTheme.colors.foreground)
-            ) {
-                checked.forEach { isChecked ->
-                    enabled.forEach { isEnabled ->
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.padding(horizontal = 16.dp),
-                        ) {
-                            val checkedStatus = if (isChecked) "Checked" else "Unchecked"
-                            val enabledStatus = if (isEnabled) "Enabled" else "Disabled"
-
-                            Text(
-                                text = "Switch: $checkedStatus + $enabledStatus",
-                                modifier = Modifier.weight(1f),
-                            )
-                            Switch(
-                                checked = isChecked,
-                                onCheckedChange = {},
-                                enabled = isEnabled,
-                                modifier = Modifier.padding(8.dp),
-                            )
-                        }
-                        HorizontalDivider()
-                    }
-                }
+    Column(
+        modifier = Modifier.background(KepkoTheme.colors.foreground)
+    ) {
+        checked.forEach { isChecked ->
+            enabled.forEach { isEnabled ->
+                Switch(
+                    checked = isChecked,
+                    onCheckedChange = {},
+                    enabled = isEnabled,
+                    modifier = Modifier
+                        .padding(
+                            vertical = 8.dp,
+                            horizontal = 16.dp,
+                        ),
+                )
             }
         }
     }

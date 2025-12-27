@@ -5,11 +5,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -23,7 +21,7 @@ import glass.yasan.kepko.foundation.border.borderStrokeFor
 import glass.yasan.kepko.foundation.color.contentColorFor
 import glass.yasan.kepko.foundation.color.getSemanticColors
 import glass.yasan.kepko.foundation.theme.KepkoTheme
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 
 @ExperimentalKepkoApi
 @Composable
@@ -63,32 +61,53 @@ public fun TextPill(
     )
 }
 
-@Preview
+@PreviewWithTest
 @Composable
-private fun TextPillPreview() {
-    KepkoTheme {
-        val containerColors = KepkoTheme.colors.getSemanticColors() +
-                KepkoTheme.colors.foreground +
-                KepkoTheme.colors.content
+internal fun TextPillLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { PreviewContent() }
+}
 
-        Column(
-            modifier = Modifier.background(KepkoTheme.colors.foreground)
-        ) {
-            containerColors.forEach { containerColor ->
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                    modifier = Modifier.padding(
-                        vertical = 2.dp,
-                        horizontal = 4.dp,
-                    ),
-                ) {
-                    TextPill(
-                        text = "Label",
-                        containerColor = containerColor,
-                    )
-                }
-            }
+@PreviewWithTest
+@Composable
+internal fun TextPillDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun TextPillBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun TextPillSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun TextPillSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { PreviewContent() }
+}
+
+@Composable
+private fun PreviewContent() {
+    val containerColors = KepkoTheme.colors.getSemanticColors() +
+            KepkoTheme.colors.foreground +
+            KepkoTheme.colors.content
+
+    Column(
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = Modifier
+            .background(KepkoTheme.colors.foreground)
+            .padding(4.dp)
+    ) {
+        containerColors.forEach { containerColor ->
+            TextPill(
+                text = "Label",
+                containerColor = containerColor,
+            )
         }
     }
 }

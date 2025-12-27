@@ -3,15 +3,12 @@ package glass.yasan.kepko.component
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import glass.yasan.kepko.foundation.theme.KepkoTheme
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 import androidx.compose.material3.RadioButton as Material3RadioButton
 import androidx.compose.material3.RadioButtonDefaults as Material3RadioButtonDefaults
 
@@ -38,40 +35,52 @@ public fun RadioButton(
     )
 }
 
-@Preview
+@PreviewWithTest
 @Composable
-private fun RadioButtonPreview() {
+internal fun RadioButtonLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun RadioButtonDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun RadioButtonBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun RadioButtonSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun RadioButtonSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { PreviewContent() }
+}
+
+@Composable
+private fun PreviewContent() {
     val selected = arrayOf(true, false)
     val enabled = arrayOf(true, false)
 
-    Column {
-        KepkoTheme {
-            Column(
-                modifier = Modifier.background(KepkoTheme.colors.foreground)
-            ) {
-                selected.forEach { isSelected ->
-                    enabled.forEach { isEnabled ->
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.padding(horizontal = 16.dp),
-                        ) {
-                            val checkedStatus = if (isSelected) "Selected" else "Unselected"
-                            val enabledStatus = if (isEnabled) "Enabled" else "Disabled"
-
-                            Text(
-                                text = "Checkbox: $checkedStatus + $enabledStatus",
-                                modifier = Modifier.weight(1f),
-                            )
-                            RadioButton(
-                                selected = isSelected,
-                                enabled = isEnabled,
-                                onClick = {},
-                                modifier = Modifier.padding(8.dp),
-                            )
-                        }
-                        HorizontalDivider()
-                    }
-                }
+    Column(
+        modifier = Modifier.background(KepkoTheme.colors.foreground)
+    ) {
+        enabled.forEach { isEnabled ->
+            selected.forEach { isSelected ->
+                RadioButton(
+                    selected = isSelected,
+                    enabled = isEnabled,
+                    onClick = {},
+                    modifier = Modifier.padding(8.dp),
+                )
             }
         }
     }

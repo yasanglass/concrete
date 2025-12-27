@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.jetbrains.compose) apply false
     alias(libs.plugins.jetbrains.compose.hotreload) apply false
     alias(libs.plugins.vanniktech.maven.publish) apply false
+    alias(libs.plugins.roborazzi) apply false
     alias(libs.plugins.arturbosch.detekt) apply true
 }
 

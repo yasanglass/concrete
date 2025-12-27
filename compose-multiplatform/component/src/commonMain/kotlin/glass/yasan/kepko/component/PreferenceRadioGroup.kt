@@ -17,7 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.theme.KepkoTheme
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import glass.yasan.kepko.foundation.theme.ThemeStyle
 
 @ExperimentalKepkoApi
 @Composable
@@ -108,10 +108,38 @@ public data class PreferenceRadioGroupItem(
     val title: @Composable () -> String
 )
 
-@Preview
+@PreviewWithTest
 @Composable
-private fun PreferenceRadioGroupPreview() {
-    val annotations = arrayOf(PreferenceAnnotation.new, null)
+internal fun PreferenceRadioGroupLightPreview() {
+    KepkoTheme(style = ThemeStyle.LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceRadioGroupDarkPreview() {
+    KepkoTheme(style = ThemeStyle.DARK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceRadioGroupBlackPreview() {
+    KepkoTheme(style = ThemeStyle.BLACK) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceRadioGroupSolarizedLightPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_LIGHT) { PreviewContent() }
+}
+
+@PreviewWithTest
+@Composable
+internal fun PreferenceRadioGroupSolarizedDarkPreview() {
+    KepkoTheme(style = ThemeStyle.SOLARIZED_DARK) { PreviewContent() }
+}
+
+@Composable
+private fun PreviewContent() {
     val descriptions = arrayOf(
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         null
@@ -120,38 +148,41 @@ private fun PreferenceRadioGroupPreview() {
     val items = listOf(
         PreferenceRadioGroupItem("item1") { "Item 1" },
         PreferenceRadioGroupItem("item2", PreferenceAnnotation.experimental) { "Item 2" },
-        PreferenceRadioGroupItem("item3") { "Item 3" },
     )
 
-    KepkoTheme {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-            modifier = Modifier
-                .background(KepkoTheme.colors.midground)
-                .padding(vertical = 16.dp),
-        ) {
-            annotations.forEach { annotation ->
-                descriptions.forEach { description ->
-
-                    PreferenceRadioGroup(
-                        title = "Preference Slider",
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                        description = description,
-                        annotation = annotation,
-                        selected = items.first(),
-                        items = items,
-                        onSelect = {},
-                        content = {
-                            Spacer(
-                                modifier = Modifier
-                                    .height(32.dp)
-                                    .fillMaxWidth()
-                                    .background(KepkoTheme.colors.caution),
-                            )
-                        },
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = Modifier
+            .background(KepkoTheme.colors.midground)
+            .padding(vertical = 16.dp),
+    ) {
+        descriptions.forEach { description ->
+            PreferenceRadioGroup(
+                title = "PreferenceSlider",
+                modifier = Modifier.padding(horizontal = 16.dp),
+                description = description,
+                annotation = PreferenceAnnotation.beta,
+                selected = items.first(),
+                items = items,
+                onSelect = {},
+                content = {
+                    Spacer(
+                        modifier = Modifier
+                            .height(32.dp)
+                            .fillMaxWidth()
+                            .background(KepkoTheme.colors.information),
                     )
-                }
-            }
+                },
+            )
+            PreferenceRadioGroup(
+                title = "PreferenceSlider",
+                modifier = Modifier.padding(horizontal = 16.dp),
+                description = description,
+                selected = items.last(),
+                items = items,
+                onSelect = {},
+                enabled = false,
+            )
         }
     }
 }
