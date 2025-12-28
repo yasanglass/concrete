@@ -4,3 +4,5 @@ preserve_hierarchy: true
 files:
   - source: "/**/composeResources/values/strings.xml"
     translation: "/%original_path%-%android_code%/%original_file_name%"
+  - source: "/**/res/values/strings.xml"
+    translation: "/%original_path%-%android_code%/%original_file_name%"
