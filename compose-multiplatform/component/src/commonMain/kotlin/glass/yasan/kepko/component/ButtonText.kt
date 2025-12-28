@@ -35,7 +35,7 @@ public fun ButtonText(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     contentModifier: Modifier = Modifier,
-    containerColor: Color = KepkoTheme.colors.content,
+    containerColor: Color = KepkoTheme.colors.foreground,
     contentColor: Color = contentColorFor(containerColor),
     enabled: Boolean = true,
     shape: Shape = KepkoTheme.shapes.button,
