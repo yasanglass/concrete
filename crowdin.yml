@@ -1,6 +1,6 @@
 base_path: "compose-multiplatform"
 preserve_hierarchy: false
-commit_message: "New translations %original_file_name% (%language%) [skip ci]"
+commit_message: "Update translations (%language%) [skip ci]"
 
 files:
   - source: "/**/composeResources/values/strings.xml"
