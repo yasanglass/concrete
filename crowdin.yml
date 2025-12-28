@@ -1,5 +1,5 @@
 base_path: "compose-multiplatform"
-preserve_hierarchy: true
+preserve_hierarchy: false
 
 files:
   - source: "/**/composeResources/values/strings.xml"
