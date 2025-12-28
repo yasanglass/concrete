@@ -4,12 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.foundation.color.contentColorFor
 import glass.yasan.kepko.foundation.theme.KepkoTheme
 import org.jetbrains.compose.resources.stringResource
 
 @Immutable
-public class PreferenceAnnotation(
+public data class PreferenceAnnotation(
     public val text: @Composable () -> String,
     public val containerColor: @Composable () -> Color = { KepkoTheme.colors.foreground },
     public val contentColor: @Composable () -> Color = { contentColorFor(containerColor()) },
@@ -59,6 +60,11 @@ public class PreferenceAnnotation(
         )
 
     }
+
+    @ExperimentalKepkoApi
+    public fun subtle(): PreferenceAnnotation = copy(
+        containerColor = { KepkoTheme.colors.foreground },
+    )
 
 }
 
