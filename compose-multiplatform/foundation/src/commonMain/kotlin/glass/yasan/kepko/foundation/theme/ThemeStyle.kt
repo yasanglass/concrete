@@ -48,14 +48,14 @@ public enum class ThemeStyle(
     public companion object {
 
         @Composable
-        public fun fromIdOrSystemDarkTheme(id: String): ThemeStyle = fromIdOrNull(id) ?: fromSystemDarkTheme()
+        public fun fromIdOrSystemDarkTheme(id: String?): ThemeStyle = fromIdOrNull(id) ?: fromSystemDarkTheme()
 
         @Composable
         public fun fromSystemDarkTheme(): ThemeStyle = fromDarkTheme(isDark = isSystemInDarkTheme())
 
         public fun fromDarkTheme(isDark: Boolean): ThemeStyle = if (isDark) DARK else LIGHT
 
-        public fun fromIdOrNull(id: String): ThemeStyle? = entries.find { it.id == id }
+        public fun fromIdOrNull(id: String?): ThemeStyle? = entries.find { it.id == id }
 
     }
 }
