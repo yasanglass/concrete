@@ -582,7 +582,7 @@ private fun LazyListScope.stylePreference(style: MutableState<ThemeStyle>) {
             title = "Style",
             items = ThemeStyle.asPreferenceRadioGroupItems(),
             selectedId = style.value.id,
-            onSelectId = { style.value = ThemeStyle.fromId(it) ?: ThemeStyle.LIGHT },
+            onSelectId = { style.value = ThemeStyle.fromIdOrNull(it) ?: ThemeStyle.LIGHT },
         )
     }
 }
