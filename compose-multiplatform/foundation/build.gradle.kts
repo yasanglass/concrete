@@ -1,3 +1,4 @@
+import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -106,6 +107,6 @@ compose.resources {
     generateResClass = auto
 }
 
-configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
+configure<MavenPublishBaseExtension> {
     coordinates(artifactId = artifactId)
 }

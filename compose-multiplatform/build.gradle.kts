@@ -1,3 +1,5 @@
+import com.vanniktech.maven.publish.MavenPublishBaseExtension
+
 plugins {
     alias(libs.plugins.jetbrains.kotlin.android) apply false
     alias(libs.plugins.jetbrains.kotlin.compose) apply false
@@ -50,7 +52,7 @@ fun Project.configureDetekt() {
 
 fun Project.configurePublishing() {
     apply(plugin = "com.vanniktech.maven.publish")
-    configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
+    configure<MavenPublishBaseExtension> {
         publishToMavenCentral(
             automaticRelease = true,
             validateDeployment = false,
