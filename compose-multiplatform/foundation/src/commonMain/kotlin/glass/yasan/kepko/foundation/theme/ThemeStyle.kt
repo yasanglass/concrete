@@ -1,5 +1,6 @@
 package glass.yasan.kepko.foundation.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import glass.yasan.kepko.foundation.annotation.ExperimentalKepkoApi
 import glass.yasan.kepko.resource.Res
@@ -45,6 +46,9 @@ public enum class ThemeStyle(
     ;
 
     public companion object {
+
+        @Composable
+        public fun fromSystemDarkMode(): ThemeStyle = fromDarkMode(isDark = isSystemInDarkTheme())
 
         public fun fromDarkMode(isDark: Boolean): ThemeStyle = if (isDark) DARK else LIGHT
 
