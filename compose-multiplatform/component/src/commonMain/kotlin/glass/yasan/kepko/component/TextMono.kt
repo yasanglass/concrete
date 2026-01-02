@@ -10,7 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
-import glass.yasan.kepko.foundation.font.rubikMonoFontFamily
+import glass.yasan.kepko.resource.Fonts
 
 @Composable
 public fun TextMono(
@@ -31,7 +31,7 @@ public fun TextMono(
         text = text,
         modifier = modifier,
         color = color,
-        fontFamily = rubikMonoFontFamily(),
+        fontFamily = Fonts.rubikMonoFontFamily(),
         fontSize = fontSize,
         fontStyle = fontStyle,
         fontWeight = fontWeight,

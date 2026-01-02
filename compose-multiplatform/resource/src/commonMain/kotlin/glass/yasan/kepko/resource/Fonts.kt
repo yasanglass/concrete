@@ -1,40 +1,30 @@
 package glass.yasan.kepko.resource
 
-import org.jetbrains.compose.resources.FontResource
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import org.jetbrains.compose.resources.Font
 
 public object Fonts {
 
-    public val rubikBlack: FontResource
-        get() = Res.font.rubik_black
+    @Composable
+    public fun rubikFontFamily(): FontFamily = FontFamily(
+        Font(Res.font.rubik_black, FontWeight.Black, FontStyle.Normal),
+        Font(Res.font.rubik_blackitalic, FontWeight.Black, FontStyle.Italic),
+        Font(Res.font.rubik_bold, FontWeight.Bold, FontStyle.Normal),
+        Font(Res.font.rubik_bolditalic, FontWeight.Bold, FontStyle.Italic),
+        Font(Res.font.rubik_light, FontWeight.Light, FontStyle.Normal),
+        Font(Res.font.rubik_lightitalic, FontWeight.Light, FontStyle.Italic),
+        Font(Res.font.rubik_medium, FontWeight.Medium, FontStyle.Normal),
+        Font(Res.font.rubik_mediumitalic, FontWeight.Medium, FontStyle.Italic),
+        Font(Res.font.rubik_regular, FontWeight.Normal, FontStyle.Normal),
+        Font(Res.font.rubik_italic, FontWeight.Normal, FontStyle.Italic),
+    )
 
-    public val rubikBlackItalic: FontResource
-        get() = Res.font.rubik_blackitalic
-
-    public val rubikBold: FontResource
-        get() = Res.font.rubik_bold
-
-    public val rubikBoldItalic: FontResource
-        get() = Res.font.rubik_bolditalic
-
-    public val rubikItalic: FontResource
-        get() = Res.font.rubik_italic
-
-    public val rubikLight: FontResource
-        get() = Res.font.rubik_light
-
-    public val rubikLightItalic: FontResource
-        get() = Res.font.rubik_lightitalic
-
-    public val rubikMedium: FontResource
-        get() = Res.font.rubik_medium
-
-    public val rubikMediumItalic: FontResource
-        get() = Res.font.rubik_mediumitalic
-
-    public val rubikMono: FontResource
-        get() = Res.font.rubik_mono
-
-    public val rubikRegular: FontResource
-        get() = Res.font.rubik_regular
+    @Composable
+    public fun rubikMonoFontFamily(): FontFamily = FontFamily(
+        Font(Res.font.rubik_mono),
+    )
 
 }
